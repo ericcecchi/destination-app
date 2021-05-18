@@ -11,9 +11,17 @@
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
-<body class="bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200">
+<body class="bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200 relative">
   <%= render 'layouts/header' %>
   <%= yield %>
   <%= render 'layouts/footer' %>
+
+  <% unless flash.empty? %>
+    <div id="flash-container" class="absolute bottom-4 right-4 flex flex-col">
+      <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "p-3 rounded-lg shadow-2xl bg-white dark:bg-gray-900 mb-4") %>
+      <% end %>
+    </div>
+  <% end %>
 </body>
 </html>

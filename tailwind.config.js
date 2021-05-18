@@ -2,6 +2,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   purge: [
     './app/views/**/*.html.erb',
+    './app/helpers/**/*.rb',
     './app/javascript/**/*.{js,jsx,ts,tsx,vue}',
   ],
   mode: 'jit',
@@ -16,5 +17,7 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }

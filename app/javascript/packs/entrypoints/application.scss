@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn {
+  @apply py-2 px-3 rounded-md font-medium;
+}
+
+.btn-primary {
+  @apply bg-indigo-500 text-white hover:bg-indigo-600;
+}
+
+label {
+  @apply block font-semibold mb-2;
+}
+
+[type="text"],
+[type="email"],
+[type="url"],
+[type="password"],
+[type="number"],
+[type="date"],
+[type="datetime-local"],
+[type="month"],
+[type="search"],
+[type="tel"],
+[type="time"],
+[type="week"],
+[multiple],
+textarea,
+select {
+  @apply rounded-md border-gray-400;
+}
+
+.debug_dump {
+  @apply border border-gray-200 rounded-md p-5 mt-8 overflow-x-auto;
+}

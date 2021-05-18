@@ -1,7 +1,36 @@
 <% provide(:title, 'Sign up') %>
-<%= render 'layouts/main' do %>
-  <%= render 'layouts/main_heading' do %>
+<%= render 'shared/main' do %>
+  <%= render 'shared/main_heading' do %>
     Sign up
   <% end %>
-  <p class="text-lg mt-10">This will be a signup page for new users.</p>
+
+  <div class="flex lg:max-w-2xl mt-10">
+      <%= form_with model: @user, local: true do |f| %>
+        <div class="lg:max-w-2xl flex flex-col">
+          <%= render 'shared/error_messages' %>
+
+          <div class="mb-4">
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+          </div>
+
+          <div class="mb-4">
+            <%= f.label :email %>
+            <%= f.email_field :email %>
+          </div>
+
+          <div class="mb-4">
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+          </div>
+
+          <div class="mb-4">
+            <%= f.label :password_confirmation, "Confirm Password" %>
+            <%= f.password_field :password_confirmation %>
+          </div>
+
+          <%= f.submit "Create my account", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+  </div>
 <% end %>
