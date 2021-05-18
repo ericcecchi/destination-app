@@ -3,6 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem 'bcrypt',     '3.1.13'
 gem 'bootsnap',   '1.7.2', require: false
 gem 'jbuilder',   '2.10.0'
 gem 'puma',       '5.2.2'
