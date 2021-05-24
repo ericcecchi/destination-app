@@ -18,7 +18,7 @@
 }
 
 label {
-  @apply block font-semibold mb-2;
+  @apply flex items-center font-semibold mb-2;
 }
 
 [type="text"],
@@ -36,9 +36,17 @@ label {
 [multiple],
 textarea,
 select {
-  @apply block rounded-md border-2 border-gray-300 dark:bg-black dark:border-gray-500;
+  @apply block rounded-md border-2 border-gray-400 dark:bg-black dark:border-gray-500;
   &:focus {
     @apply border-indigo-600;
+  }
+}
+
+[type="checkbox"],
+[type="radio"] {
+  @apply rounded-sm border-2 border-gray-400 dark:bg-black dark:border-gray-500 text-indigo-600 ring-indigo-600;
+  label > & + span {
+    @apply font-normal ml-2;
   }
 }
 
