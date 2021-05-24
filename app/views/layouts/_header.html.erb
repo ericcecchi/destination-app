@@ -1,9 +1,9 @@
-<nav class="bg-gray-800">
+<nav class="bg-gray-800" data-controller="dropdown">
   <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
     <div class="relative flex items-center justify-between h-16">
       <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
         <!-- Mobile menu button-->
-        <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+        <button data-action="click->dropdown#toggle" data-dropdown-target="button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
           <span class="sr-only">Open main menu</span>
           <!--
             Icon when menu is closed.
@@ -29,24 +29,54 @@
       </div>
       <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
         <div class="flex-shrink-0 flex items-center">
-          <%= link_to "Sample App", root_path, class: "font-bold text-lg text-white" %>
+          <%= link_to "Recap", root_path, class: "font-bold text-lg text-white" %>
         </div>
         <div class="hidden sm:block sm:ml-6">
           <div class="flex space-x-4">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <%= link_to "Home", root_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
             <%= link_to "Help", help_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
+            <% if logged_in? %>
+              <%= link_to "Users", users_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
+            <% end %>
           </div>
         </div>
       </div>
       <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-        <%= link_to "Log in", '#', class: "btn btn-sm btn-primary" %>
+        <% if logged_in? %>
+          <div class="relative inline-block text-left" data-controller="dropdown">
+            <div>
+              <button type="button" class="transition px-3 py-2 inline-flex rounded-md items-center justify-center w-full text-sm font-medium text-gray-100 hover:text-white focus:outline-none focus:bg-gray-700 hover:bg-gray-700" id="menu-button" aria-expanded="false" aria-haspopup="true" data-action="click->dropdown#toggle" data-dropdown-target="button">
+                <div class="hidden sm:block">
+                  <%= current_user.name %>
+                </div>
+
+                <div class="rounded-full overflow-hidden w-7 sm:ml-4">
+                  <%= gravatar_for current_user, size: 100 %>
+                </div>
+              </button>
+            </div>
+
+            <div data-dropdown-target="menu" class="origin-top-right absolute z-30 right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none divide-y divide-gray-100 hidden" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+              <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+              <div class="py-1" role="none">
+                <%= link_to "Profile", current_user, class: "transition text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100", role: "menuitem", tabindex: "-1" %>
+                <%= link_to "Settings", "#", class: "text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100", role: "menuitem", tabindex: "-1" %>
+              </div>
+              <div class="py-1" role="none">
+                <%= link_to "Log out", logout_path, method: :delete, class: "text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100", role: "menuitem", tabindex: "-1" %>
+              </div>
+            </div>
+          </div>
+        <% else %>
+          <%= link_to "Log in", login_path, class: "btn btn-sm btn-primary" %>
+        <% end %>
       </div>
     </div>
   </div>
 
   <!-- Mobile menu, show/hide based on menu state. -->
-  <div class="sm:hidden" id="mobile-menu">
+  <div data-dropdown-target="menu" class="hidden sm:hidden" id="mobile-menu">
     <div class="px-2 pt-2 pb-3 space-y-1">
       <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
       <%= link_to "Home", root_path, class: "bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" %>

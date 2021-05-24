@@ -9,6 +9,7 @@ gem 'jbuilder',   '2.10.0'
 gem 'puma',       '5.2.2'
 gem 'rails',      '6.1.3.2'
 gem 'sass-rails', '6.0.0'
+gem 'stimulus-rails'
 gem 'turbolinks', '5.2.1'
 gem 'webpacker',  '6.0.0.beta.7 '
 

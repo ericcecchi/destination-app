@@ -19,7 +19,7 @@
   <% unless flash.empty? %>
     <div id="flash-container" class="absolute bottom-4 right-4 flex flex-col">
       <% flash.each do |message_type, message| %>
-        <%= content_tag(:div, message, class: "p-3 rounded-lg shadow-2xl bg-white dark:bg-gray-900 mb-4") %>
+        <%= content_tag(:div, message, class: "p-3 rounded-lg shadow-2xl mb-4 #{flash_styles message_type}") %>
       <% end %>
     </div>
   <% end %>

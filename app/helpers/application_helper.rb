@@ -10,4 +10,14 @@ module ApplicationHelper
       "#{page_title} | #{base_title}"
     end
   end
+
+  def flash_styles(message_type)
+    p message_type.to_sym
+    case message_type.to_sym
+    when :success
+      'bg-green-200 dark:bg-green-800'
+    when :danger
+      'bg-red-200 dark:bg-red-800'
+    end
+  end
 end
