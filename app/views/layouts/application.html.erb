@@ -13,15 +13,15 @@
 
 <body class="bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200 relative">
   <%= render 'layouts/header' %>
-  <%= yield %>
-  <%= render 'layouts/footer' %>
-
   <% unless flash.empty? %>
-    <div id="flash-container" class="absolute bottom-4 right-4 flex flex-col">
+    <div id="flash-container" class="max-w-7xl mx-auto">
       <% flash.each do |message_type, message| %>
-        <%= content_tag(:div, message, class: "p-3 rounded-lg shadow-2xl mb-4 #{flash_styles message_type}") %>
+        <%= content_tag(:div, message, class: "m-3 px-4 py-3 rounded-lg shadow-lg mb-4 text-sm #{flash_styles message_type}") %>
       <% end %>
     </div>
   <% end %>
+
+  <%= yield %>
+  <%= render 'layouts/footer' %>
 </body>
 </html>

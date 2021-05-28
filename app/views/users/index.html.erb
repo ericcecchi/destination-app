@@ -1,0 +1,19 @@
+<% provide(:title, "All users") %>
+
+<%= render 'shared/main' do %>
+  <%= render 'shared/main_heading' do %>
+    All users
+  <% end %>
+
+  <div class="mt-10">
+    <%= will_paginate %>
+  </div>
+
+  <ul class="mt-10 grid grid-cols-4 grid-flow-row gap-4">
+    <%= render @users %>
+  </ul>
+
+  <div class="mt-10">
+    <%= will_paginate %>
+  </div>
+<% end %>

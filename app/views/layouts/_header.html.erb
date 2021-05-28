@@ -61,7 +61,7 @@
               <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
               <div class="py-1" role="none">
                 <%= link_to "Profile", current_user, class: "transition text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100", role: "menuitem", tabindex: "-1" %>
-                <%= link_to "Settings", "#", class: "text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100", role: "menuitem", tabindex: "-1" %>
+                <%= link_to "Settings", edit_user_path(current_user), class: "text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100", role: "menuitem", tabindex: "-1" %>
               </div>
               <div class="py-1" role="none">
                 <%= link_to "Log out", logout_path, method: :delete, class: "text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100", role: "menuitem", tabindex: "-1" %>
