@@ -16,7 +16,9 @@
   <% unless flash.empty? %>
     <div id="flash-container" class="max-w-7xl mx-auto">
       <% flash.each do |message_type, message| %>
-        <%= content_tag(:div, message, class: "m-3 px-4 py-3 rounded-lg shadow-lg mb-4 text-sm #{flash_styles message_type}") %>
+        <%= render 'shared/banner', message_type: message_type do %>
+          <%= message %>
+        <% end %>
       <% end %>
     </div>
   <% end %>

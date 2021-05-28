@@ -1,16 +1,19 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: %i[index edit update destroy]
+  before_action :logged_in_user, only: %i[index edit update show destroy]
+  before_action :activated_user, only: %i[index destroy]
   before_action :correct_user,   only: %i[edit update]
   before_action :admin_user,     only: :destroy
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.where(activated: true).paginate(page: params[:page])
   end
 
   def show
     @user = User.find(params[:id])
+    activated_user unless current_user?(@user) || current_user.activated?
+    redirect_to root_url unless @user.activated? || current_user?(@user)
   end
 
   def new
@@ -22,7 +25,8 @@ class UsersController < ApplicationController
     if @user.save
       reset_session
       log_in @user
-      flash[:success] = 'Welcome to Recap!'
+      @user.send_activation_email
+      flash[:info] = 'Please check your email to activate your account.'
       redirect_to @user
     else
       render 'new'
@@ -36,8 +40,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      flash[:success] = 'Profile updated'
-      redirect_to @user
+      flash[:success] = 'Settings saved.'
+      redirect_to edit_user_path @user
     else
       render 'edit'
     end
@@ -48,8 +52,6 @@ class UsersController < ApplicationController
     flash[:success] = 'User deleted'
     redirect_to users_url
   end
-
-  private
 
   private
 
@@ -74,5 +76,12 @@ class UsersController < ApplicationController
 
   def admin_user
     redirect_to(root_url) unless current_user.admin?
+  end
+
+  def activated_user
+    return if user_activated?
+
+    flash[:danger] = 'You must activate your account to use this feature.'
+    redirect_to root_url
   end
 end

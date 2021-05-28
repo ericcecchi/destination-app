@@ -13,6 +13,8 @@ module ApplicationHelper
 
   def flash_styles(message_type)
     case message_type.to_sym
+    when :info
+      'border-2 border-blue-500 dark:border-blue-800 bg-blue-200 dark:bg-blue-600 bg-opacity-50 dark:bg-opacity-10'
     when :success
       'border-2 border-green-500 dark:border-green-800 bg-green-200 dark:bg-green-600 bg-opacity-50 dark:bg-opacity-10'
     when :danger
