@@ -7,7 +7,8 @@
   <div class="sm:max-w-sm mt-10 mx-auto">
     <% if !@user.activated? %>
       <%= render 'shared/banner', locals: {message_type: :info} do %>
-        Your account is not activated. Check your email for an activation link to gain full access to Recap.
+        <div>Your account is not activated. Check your email for an activation link to gain full access to Recap.</div>
+        <%= link_to 'Resend activation email', account_activations_path, method: :post, class: 'block underline font-semibold mt-2' %>
       <% end %>
     <% end %>
 
@@ -16,7 +17,7 @@
         <div class="rounded-full overflow-hidden w-24 mx-auto relative">
           <%= gravatar_for @user %>
           <div class="opacity-0 absolute top-0 w-full h-full hover:opacity-90 transition">
-            <div class="absolute bottom-0 left-0 right-0 py-2 bg-gray-800 text-sm font-semibold">
+            <div class="absolute bottom-0 left-0 right-0 py-2 text-white bg-gray-800 text-sm font-semibold">
               Update
             </div>
           </div>
