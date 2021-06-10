@@ -6,6 +6,8 @@
 
   <div class="sm:max-w-sm mt-10 mx-auto">
       <%= render 'shared/user_form' %>
-      <p class="mt-5 text-center">Already have an account? <%= link_to "Log in.", login_path %></p>
+      <p class="mt-5 text-center">
+        Already have an account? <%= link_to "Log in.", login_path, class: "underline" %>
+      </p>
   </div>
 <% end %>
