@@ -1,0 +1,6 @@
+<li id="post-<%= post.id %>" class="my-5">
+  <div class="content"><%= post.content %></div>
+  <div class="text-sm opacity-75">
+    Posted <%= time_ago_in_words(post.created_at) %> ago
+  </div>
+</li>

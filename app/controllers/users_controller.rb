@@ -12,7 +12,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @posts = @user.posts.paginate(page: params[:page])
     activated_user unless current_user?(@user) || current_user.activated?
+    @post = current_user.posts.build if current_user?(@user) && current_user.activated?
     redirect_to root_url unless @user.activated? || current_user?(@user)
   end
 
@@ -57,31 +59,5 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
-  end
-
-  # Confirms a logged-in user.
-  def logged_in_user
-    return if logged_in?
-
-    store_location
-    flash[:danger] = 'You must log in to access that page.'
-    redirect_to login_url
-  end
-
-  # Confirms the correct user.
-  def correct_user
-    @user = User.find(params[:id])
-    redirect_to(root_url) unless current_user?(@user)
-  end
-
-  def admin_user
-    redirect_to(root_url) unless current_user.admin?
-  end
-
-  def activated_user
-    return if user_activated?
-
-    flash[:danger] = 'You must activate your account to use this feature.'
-    redirect_to root_url
   end
 end
