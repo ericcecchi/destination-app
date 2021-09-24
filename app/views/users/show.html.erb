@@ -18,18 +18,18 @@
   <% end %>
 
   <div class="pt-5 w-full px-4 sm:pt-6 sm:px-6 md:pt-8 lg:pt-10 lg:px-8 xl:pt-15">
-    <h2 class="text-2xl font-bold mb-5">Posts</h2>
-    <% if @post %>
-      <section class="post-form">
-        <%= render 'posts/form' %>
+    <h2 class="text-2xl font-bold mb-5">Recommendations</h2>
+    <% if @recommendation %>
+      <section class="recommendation-form">
+        <%= render 'recommendations/form' %>
       </section>
     <% end %>
 
-    <% if @posts.any? %>
-      <ol class="posts">
-        <%= render @posts %>
+    <% if @recommendations.any? %>
+      <ol class="recommendations">
+        <%= render @recommendations %>
       </ol>
-      <%= will_paginate @posts %>
+      <%= will_paginate @recommendations %>
     <% end %>
   </div>
 </div>

@@ -12,9 +12,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.paginate(page: params[:page])
+    @recommendations = @user.recommendations.paginate(page: params[:page])
     activated_user unless current_user?(@user) || current_user.activated?
-    @post = current_user.posts.build if current_user?(@user) && current_user.activated?
+    @recommendation = current_user.recommendations.build if current_user?(@user) && current_user.activated?
     redirect_to root_url unless @user.activated? || current_user?(@user)
   end
 

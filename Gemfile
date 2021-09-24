@@ -3,6 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem 'after_party'
 gem 'bcrypt',        '3.1.13'
 gem 'bootsnap',      '1.7.2', require: false
 gem 'faker',         '2.11.0'

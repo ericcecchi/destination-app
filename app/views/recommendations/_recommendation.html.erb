@@ -1,0 +1,6 @@
+<li id="recommendation-<%= recommendation.id %>" class="my-5">
+  <div class="content"><%= recommendation.content %></div>
+  <div class="text-sm opacity-75">
+    Recommended <%= time_ago_in_words(recommendation.created_at) %> ago
+  </div>
+</li>

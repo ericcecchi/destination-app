@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  has_many :posts, dependent: :destroy
+  has_many :recommendations, dependent: :destroy
 
   attr_accessor :remember_token, :activation_token, :reset_token
 

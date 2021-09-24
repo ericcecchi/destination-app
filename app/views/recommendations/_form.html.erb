@@ -1,0 +1,9 @@
+<%= form_with(model: @recommendation, local: true) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="field w-full">
+    <%= f.text_area :content, placeholder: "Create a new recommendation...", class: "w-full" %>
+  </div>
+
+  <%= f.submit "Recommendation", class: "btn btn-primary mt-5" %>
+<% end %>

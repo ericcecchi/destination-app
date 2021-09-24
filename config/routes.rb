@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :posts
+  resources :recommendations
   root   'static_pages#home'
   get    '/help',    to: 'static_pages#help'
   get    '/about',   to: 'static_pages#about'
@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   resources :users
   resources :account_activations, only: %i[create edit]
   resources :password_resets, only: %i[new create edit update]
-  resources :posts, except: %i[index]
+  resources :recommendations, except: %i[index]
 end
