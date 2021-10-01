@@ -8,7 +8,7 @@ gem 'bcrypt',        '3.1.13'
 gem 'bootsnap',      '1.7.2', require: false
 gem 'faker',         '2.11.0'
 gem 'jbuilder',      '2.10.0'
-gem 'puma',          '5.2.2'
+gem 'puma',          '5.3.1'
 gem 'rails',         '6.1.3.2'
 gem 'sass-rails',    '6.0.0'
 gem 'stimulus-rails'
