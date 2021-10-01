@@ -21,6 +21,11 @@ class RecommendationsController < ApplicationController
     end
   end
 
+  # GET /recommendations/new
+  def new
+    @recommendation = Recommendation.new
+  end
+
   # PATCH/PUT /recommendations/1
   def update
     if @recommendation.update(recommendation_params)
@@ -45,6 +50,6 @@ class RecommendationsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def recommendation_params
-    params.require(:recommendation).permit(:content)
+    params.require(:recommendation).permit(:content, :title)
   end
 end

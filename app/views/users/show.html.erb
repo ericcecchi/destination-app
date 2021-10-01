@@ -18,12 +18,7 @@
   <% end %>
 
   <div class="pt-5 w-full px-4 sm:pt-6 sm:px-6 md:pt-8 lg:pt-10 lg:px-8 xl:pt-15">
-    <h2 class="text-2xl font-bold mb-5">Recommendations</h2>
-    <% if @recommendation %>
-      <section class="recommendation-form">
-        <%= render 'recommendations/form' %>
-      </section>
-    <% end %>
+    <h2 class="text-4xl font-bold mb-5">Your recommendations</h2>
 
     <% if @recommendations.any? %>
       <ol class="recommendations">
