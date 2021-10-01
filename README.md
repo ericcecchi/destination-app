@@ -1,25 +1,14 @@
-# Ruby on Rails Tutorial sample application
-
-This is the sample application for
-[*Ruby on Rails Tutorial:
-Learn Web Development with Rails*](https://www.railstutorial.org/)
-(6th Edition)
-by [Michael Hartl](https://www.michaelhartl.com/).
-
-## License
-
-All source code in the [Ruby on Rails Tutorial](https://www.railstutorial.org/)
-is available jointly under the MIT License and the Beerware License. See
-[LICENSE.md](LICENSE.md) for details.
+# Recommend
+> Curated travel recommendations from tastemakers you love
 
 ## Getting started
 
-To get started with the app, clone the repo and then install the needed gems:
+To run the app locally, clone the repo and then install the dependencies:
 
 ```
-$ gem install bundler -v 2.2.17
-$ bundle _2.2.17_ config set --local without 'production'
-$ bundle _2.2.17_ install
+$ gem install bundler
+$ bundle config set --local without 'production'
+$ bundle install
 ```
 
 Next, migrate the database:
@@ -39,6 +28,3 @@ If the test suite passes, you'll be ready to run the app in a local server:
 ```
 $ rails server
 ```
-
-For more information, see the
-[*Ruby on Rails Tutorial* book](https://www.railstutorial.org/book).

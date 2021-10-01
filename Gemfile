@@ -17,12 +17,14 @@ gem 'webpacker',     '6.0.0.beta.7 '
 gem 'will_paginate', '3.3.0'
 
 group :development, :test do
-  gem 'byebug',  '11.1.3', platforms: %i[mri mingw x64_mingw]
+  gem 'byebug', '11.1.3', platforms: %i[mri mingw x64_mingw]
   gem 'sqlite3', '1.4.2'
 end
 
 group :development do
-  gem 'listen',                '3.4.1'
+  gem 'annotate', '3.1.1'
+  gem 'listen', '3.4.1'
+  gem 'rails-erd', '~> 1.6'
   gem 'spring',                '2.1.1'
   gem 'spring-watcher-listen', '2.0.1'
   gem 'web-console',           '4.1.0'
