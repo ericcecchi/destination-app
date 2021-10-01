@@ -33,7 +33,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   test 'should redirect edit when logged in as wrong user' do
     log_in_as(@non_admin)
     get edit_user_path(@admin)
-    assert flash.empty?
+    assert_empty flash
     assert_redirected_to root_url
   end
 
@@ -45,7 +45,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
         email: @admin.email
       }
     }
-    assert flash.empty?
+    assert_empty flash
     assert_redirected_to root_url
   end
 

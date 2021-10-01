@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: recommendations
@@ -22,8 +24,8 @@
 #  user_id   (user_id => users.id)
 #
 class Recommendation < ApplicationRecord
-  belongs_to :user, required: true
-  belongs_to :place, required: false
+  belongs_to :user, optional: false
+  belongs_to :place, optional: true
 
   validates :user_id, presence: true
   validates :title, presence: true

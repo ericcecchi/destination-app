@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: locales
@@ -10,5 +12,5 @@
 #  updated_at     :datetime         not null
 #
 class Locale < ApplicationRecord
-  has_many :places
+  has_many :places, dependent: :nullify
 end

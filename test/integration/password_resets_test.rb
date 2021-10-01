@@ -79,13 +79,13 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
               password_confirmation: 'foobaz'
             }
           }
-    assert is_logged_in?
+    assert logged_in?
     assert_not flash.empty?
     assert_redirected_to user
 
     # Reusing reset link
     delete logout_path
-    assert_not is_logged_in?
+    assert_not logged_in?
     get edit_password_reset_path(user.reset_token, email: user.email)
     patch password_reset_path(user.reset_token),
           params: {

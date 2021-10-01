@@ -61,7 +61,9 @@ class User < ApplicationRecord
   # Remembers a user in the database for use in persistent sessions.
   def remember
     self.remember_token = User.new_token
+    # rubocop:disable Rails/SkipsModelValidations
     update_attribute(:remember_digest, User.digest(remember_token))
+    # rubocop:enable Rails/SkipsModelValidations
     remember_digest
   end
 
@@ -81,12 +83,16 @@ class User < ApplicationRecord
 
   # Forgets a user.
   def forget
+    # rubocop:disable Rails/SkipsModelValidations
     update_attribute(:remember_digest, nil)
+    # rubocop:enable Rails/SkipsModelValidations
   end
 
   # Activates an account.
   def activate
+    # rubocop:disable Rails/SkipsModelValidations
     update_columns(activated: true, activated_at: Time.zone.now)
+    # rubocop:enable Rails/SkipsModelValidations
   end
 
   # Sends activation email.
@@ -101,7 +107,9 @@ class User < ApplicationRecord
   # Sets the password reset attributes.
   def create_reset_digest
     self.reset_token = User.new_token
+    # rubocop:disable Rails/SkipsModelValidations
     update_columns(reset_digest: User.digest(reset_token), reset_sent_at: Time.zone.now)
+    # rubocop:enable Rails/SkipsModelValidations
   end
 
   # Sends password reset email.
@@ -116,7 +124,9 @@ class User < ApplicationRecord
 
   # Expires a reset token so it can't be reused
   def expire_reset_token
+    # rubocop:disable Rails/SkipsModelValidations
     update_attribute(:reset_digest, nil)
+    # rubocop:enable Rails/SkipsModelValidations
   end
 
   private

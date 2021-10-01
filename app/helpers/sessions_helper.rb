@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# rubocop:disable Rails/HelperInstanceVariable
+
+# Helper methods for sessions
 module SessionsHelper
   # Logs in the given user.
   def log_in(user)
@@ -63,3 +66,5 @@ module SessionsHelper
     current_user.activated?
   end
 end
+
+# rubocop:enable Rails/HelperInstanceVariable

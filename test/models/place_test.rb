@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: places
@@ -17,7 +19,7 @@
 #
 #  locale_id  (locale_id => locales.id)
 #
-require "test_helper"
+require 'test_helper'
 
 class PlaceTest < ActiveSupport::TestCase
   # test "the truth" do

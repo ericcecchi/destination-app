@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Resource controller for Users
 class UsersController < ApplicationController
   before_action :logged_in_user, only: %i[index edit update show destroy]
   before_action :activated_user, only: %i[index destroy]
@@ -10,6 +11,7 @@ class UsersController < ApplicationController
     @users = User.where(activated: true).paginate(page: params[:page])
   end
 
+  # rubocop:disable Metrics/AbcSize
   def show
     @user = User.find(params[:id])
     @recommendations = @user.recommendations.paginate(page: params[:page])
@@ -17,6 +19,7 @@ class UsersController < ApplicationController
     @recommendation = current_user.recommendations.build if current_user?(@user) && current_user.activated?
     redirect_to root_url unless @user.activated? || current_user?(@user)
   end
+  # rubocop:enable Metrics/AbcSize
 
   def new
     @user = User.new

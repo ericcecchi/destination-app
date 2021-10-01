@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Resource controller for recommendations
 class RecommendationsController < ApplicationController
   before_action :logged_in_user, only: %i[create update destroy]
   before_action :set_recommendation, only: %i[show edit update destroy]

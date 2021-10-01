@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Controller for managing account activations
 class AccountActivationsController < ApplicationController
   before_action :logged_in?, only: [:create]
 
@@ -9,6 +10,7 @@ class AccountActivationsController < ApplicationController
     redirect_to edit_user_path(current_user)
   end
 
+  # rubocop:todo Metrics/AbcSize
   def edit
     user = User.find_by(email: params[:email])
     if user && !user.activated? && user.authenticated?(:activation, params[:id])
@@ -21,4 +23,5 @@ class AccountActivationsController < ApplicationController
       redirect_to root_url
     end
   end
+  # rubocop:enable Metrics/AbcSize
 end

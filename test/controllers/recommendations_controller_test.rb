@@ -50,7 +50,7 @@ class RecommendationsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should update recommendation' do
     log_in_as @user
-    patch recommendation_url(@recommendation), params: { recommendation: { content: 'Blerg'} }
+    patch recommendation_url(@recommendation), params: { recommendation: { content: 'Blerg' } }
     assert_redirected_to @user
   end
 

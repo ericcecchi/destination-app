@@ -27,6 +27,9 @@ group :development do
   gem 'bundler-audit'
   gem 'listen', '3.4.1'
   gem 'rails-erd', '~> 1.6'
+  gem 'rubocop', require: false
+  gem 'rubocop-minitest', require: false
+  gem 'rubocop-rails', require: false
   gem 'spring',                '2.1.1'
   gem 'spring-watcher-listen', '2.0.1'
   gem 'web-console',           '4.1.0'

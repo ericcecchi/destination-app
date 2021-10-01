@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: places
@@ -18,6 +20,6 @@
 #  locale_id  (locale_id => locales.id)
 #
 class Place < ApplicationRecord
-  has_many :recommendations
+  has_many :recommendations, dependent: :nullify
   belongs_to :locale
 end

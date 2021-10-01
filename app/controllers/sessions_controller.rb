@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
+# Controller for managing user session
 class SessionsController < ApplicationController
   def new; end
 
+  # rubocop:todo Metrics/MethodLength, Metrics/AbcSize
   def create
     @user = User.find_by(email: params[:session][:email].downcase)
     if @user&.authenticate(params[:session][:password])
@@ -16,6 +18,7 @@ class SessionsController < ApplicationController
       render 'new'
     end
   end
+  # rubocop:enable Metrics/MethodLength, Metrics/AbcSize
 
   def destroy
     log_out if logged_in?
