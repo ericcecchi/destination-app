@@ -24,7 +24,7 @@ jobs:
       # Add or Replace any other security checks here
       - name: Run security checks
         run: |
-          rake bundle:audit
+          bundle exec rake bundle:audit
           bundle exec rakeman -q -w2
       # Add or Replace any other Linters here
       - name: Run linters
