@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_17_174205) do
+ActiveRecord::Schema.define(version: 2021_09_28_031238) do
 
   create_table "locales", force: :cascade do |t|
     t.string "name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2021_09_17_174205) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "place_id"
+    t.string "title"
     t.index ["place_id"], name: "index_recommendations_on_place_id"
     t.index ["user_id", "created_at"], name: "index_recommendations_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_recommendations_on_user_id"

@@ -2,8 +2,12 @@
   <%= render 'shared/error_messages', object: f.object %>
 
   <div class="field w-full">
-    <%= f.text_area :content, placeholder: "Create a new recommendation...", class: "w-full" %>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "w-full" %>
+
+    <%= f.label :content %>
+    <%= f.text_area :content, class: "w-full" %>
   </div>
 
-  <%= f.submit "Recommendation", class: "btn btn-primary mt-5" %>
+  <%= f.submit "Create recommendation", class: "btn btn-primary mt-5" %>
 <% end %>
