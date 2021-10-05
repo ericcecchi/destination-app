@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_28_031238) do
+ActiveRecord::Schema.define(version: 2021_10_05_024219) do
 
   create_table "locales", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2021_09_28_031238) do
     t.string "hero_image_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "place_id", null: false
+    t.index ["place_id"], name: "index_locales_on_place_id"
   end
 
   create_table "places", force: :cascade do |t|
@@ -61,6 +63,7 @@ ActiveRecord::Schema.define(version: 2021_09_28_031238) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "locales", "places"
   add_foreign_key "places", "locales"
   add_foreign_key "recommendations", "places"
   add_foreign_key "recommendations", "users"
