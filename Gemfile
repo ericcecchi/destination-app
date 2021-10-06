@@ -8,6 +8,7 @@ gem 'bcrypt',        '3.1.13'
 gem 'bootsnap',      '1.7.2', require: false
 gem 'faker',         '2.11.0'
 gem 'jbuilder',      '2.10.0'
+gem 'pg',            '1.2.3'
 gem 'puma',          '5.3.1'
 gem 'rails',         '6.1.4.1'
 gem 'sass-rails',    '6.0.0'
@@ -18,7 +19,6 @@ gem 'will_paginate', '3.3.0'
 
 group :development, :test do
   gem 'byebug', '11.1.3', platforms: %i[mri mingw x64_mingw]
-  gem 'sqlite3', '1.4.2'
 end
 
 group :development do
@@ -42,8 +42,4 @@ group :test do
   gem 'rails-controller-testing', '1.0.5'
   gem 'selenium-webdriver',       '3.142.7'
   gem 'webdrivers',               '4.6.0'
-end
-
-group :production do
-  gem 'pg', '1.2.3'
 end
