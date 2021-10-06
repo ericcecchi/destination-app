@@ -4,7 +4,7 @@
 #
 # Table name: recommendations
 #
-#  id         :integer          not null, primary key
+#  id         :bigint           not null, primary key
 #  content    :text
 #  title      :string
 #  created_at :datetime         not null
@@ -20,8 +20,8 @@
 #
 # Foreign Keys
 #
-#  place_id  (place_id => places.id)
-#  user_id   (user_id => users.id)
+#  fk_rails_...  (place_id => places.id)
+#  fk_rails_...  (user_id => users.id)
 #
 class Recommendation < ApplicationRecord
   belongs_to :user, optional: false

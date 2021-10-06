@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_05_024219) do
+ActiveRecord::Schema.define(version: 2021_10_05_033803) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "locales", force: :cascade do |t|
     t.string "name"
@@ -23,11 +26,12 @@ ActiveRecord::Schema.define(version: 2021_10_05_024219) do
   end
 
   create_table "places", force: :cascade do |t|
-    t.string "place_id"
     t.string "name"
     t.integer "locale_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.jsonb "details"
+    t.string "external_place_id"
     t.index ["locale_id"], name: "index_places_on_locale_id"
   end
 

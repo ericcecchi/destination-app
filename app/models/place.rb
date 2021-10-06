@@ -4,12 +4,13 @@
 #
 # Table name: places
 #
-#  id         :integer          not null, primary key
-#  name       :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  locale_id  :integer          not null
-#  place_id   :string
+#  id                :bigint           not null, primary key
+#  details           :jsonb
+#  name              :string
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  external_place_id :string
+#  locale_id         :integer          not null
 #
 # Indexes
 #
@@ -17,9 +18,12 @@
 #
 # Foreign Keys
 #
-#  locale_id  (locale_id => locales.id)
+#  fk_rails_...  (locale_id => locales.id)
 #
 class Place < ApplicationRecord
+  belongs_to :locale, optional: true
   has_many :recommendations, dependent: :nullify
-  belongs_to :locale
+
+  DETAILS_KEYS = %i[formatted_address geometry name place_id website].freeze
+  store_accessor :details, DETAILS_KEYS, prefix: true
 end
