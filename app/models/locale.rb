@@ -4,7 +4,7 @@
 #
 # Table name: locales
 #
-#  id             :integer          not null, primary key
+#  id             :bigint           not null, primary key
 #  content        :string
 #  hero_image_url :string
 #  name           :string
@@ -18,7 +18,7 @@
 #
 # Foreign Keys
 #
-#  place_id  (place_id => places.id)
+#  fk_rails_...  (place_id => places.id)
 #
 class Locale < ApplicationRecord
   belongs_to :place, optional: false
