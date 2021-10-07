@@ -3,10 +3,12 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem 'active_interaction', '~> 4.0'
 gem 'after_party'
 gem 'bcrypt',        '3.1.13'
 gem 'bootsnap',      '1.7.2', require: false
 gem 'faker',         '2.11.0'
+gem 'google_places', '2.0.0'
 gem 'jbuilder',      '2.10.0'
 gem 'pg',            '1.2.3'
 gem 'puma',          '5.5.1'
@@ -19,6 +21,7 @@ gem 'will_paginate', '3.3.0'
 
 group :development, :test do
   gem 'byebug', '11.1.3', platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -26,6 +29,7 @@ group :development do
   gem 'brakeman'
   gem 'bundler-audit'
   gem 'listen', '3.4.1'
+  gem 'pry-byebug'
   gem 'rails-erd', '~> 1.6'
   gem 'rubocop', require: false
   gem 'rubocop-minitest', require: false

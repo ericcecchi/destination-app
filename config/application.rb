@@ -11,8 +11,14 @@ Bundler.require(*Rails.groups)
 module RecommendApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.1
+    config.load_defaults 6.0
 
+    config.autoloader = :classic
+
+    %w[app lib].each do |path|
+      config.autoload_paths   << config.root.join(path)
+      config.eager_load_paths << config.root.join(path)
+    end
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
