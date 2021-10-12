@@ -9,7 +9,7 @@ gem 'bootsnap',      '1.7.2', require: false
 gem 'faker',         '2.11.0'
 gem 'jbuilder',      '2.10.0'
 gem 'pg',            '1.2.3'
-gem 'puma',          '5.3.1'
+gem 'puma',          '5.5.1'
 gem 'rails',         '6.1.4.1'
 gem 'sass-rails',    '6.0.0'
 gem 'stimulus-rails'
