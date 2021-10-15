@@ -18,7 +18,7 @@ class RecommendationsController < ApplicationController
     if @recommendation.save
       redirect_to current_user, notice: 'Recommendation was successfully created.'
     else
-      render 'users/show'
+      render current_user
     end
   end
 
@@ -32,7 +32,7 @@ class RecommendationsController < ApplicationController
     if @recommendation.update(recommendation_params)
       redirect_to current_user, notice: 'Recommendation was successfully updated.'
     else
-      render 'users/show'
+      render current_user
     end
   end
 

@@ -32,7 +32,7 @@ class RecommendationsControllerTest < ActionDispatch::IntegrationTest
   test 'should create recommendation' do
     log_in_as @user
     assert_difference('Recommendation.count') do
-      post recommendations_url, params: { recommendation: { content: 'Blarg', user_id: @user.id } }
+      post recommendations_url, params: { recommendation: { title: 'Title', content: 'Blarg', user_id: @user.id } }
     end
 
     assert_redirected_to @user
@@ -50,7 +50,7 @@ class RecommendationsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should update recommendation' do
     log_in_as @user
-    patch recommendation_url(@recommendation), params: { recommendation: { content: 'Blerg' } }
+    patch recommendation_url(@recommendation), params: { recommendation: { title: 'Title', content: 'Blerg' } }
     assert_redirected_to @user
   end
 

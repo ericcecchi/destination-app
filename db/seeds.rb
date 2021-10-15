@@ -29,7 +29,10 @@ end
 # Generate posts for a subset of users.
 users = User.order(:created_at).take(6)
 50.times do
-  title = Faker::Lorem.words(number: 3)
   content = Faker::Lorem.sentence(word_count: 5)
-  users.each { |user| user.recommendations.create!(title: title, content: content) }
+  users.each { |user| user.recommendations.create!(content: content) }
 end
+
+
+
+
