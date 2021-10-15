@@ -13,7 +13,7 @@ on:
 jobs:
   rails-test:
     runs-on: ubuntu-latest
-    container: ruby
+    container: ubuntu-latest
 
     services:
       postgres:
