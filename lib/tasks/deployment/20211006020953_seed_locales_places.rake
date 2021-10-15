@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/BlockLength
 namespace :after_party do
   desc 'Deployment task: seed_locales_places'
   task seed_locales_places: :environment do
@@ -43,3 +44,4 @@ namespace :after_party do
       .create version: AfterParty::TaskRecorder.new(__FILE__).timestamp
   end
 end
+# rubocop:enable Metrics/BlockLength
