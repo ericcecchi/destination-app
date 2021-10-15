@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Locales
   # Interaction to create a locale
   class Create < ApplicationInteraction
