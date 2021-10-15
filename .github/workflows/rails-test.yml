@@ -18,6 +18,8 @@ jobs:
     services:
       postgres:
         image: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
@@ -36,5 +38,8 @@ jobs:
       - name: Run rails test
         env:
           DATABASE_USERNAME: postgres
+          DATABASE_PASSWORD: postgres
+          RAILS_ENV: test
         run: |
+          bundle exec rake db:migrate
           bundle exec rails test
