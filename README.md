@@ -37,6 +37,11 @@ rails test
 
 If the test suite passes, you'll be ready to run the app in a local server:
 
-```
+```bash
 rails server
+```
+
+When developing locally, you should also run webpack in another terminal window:
+```bash
+bin/webpack-dev-server
 ```
