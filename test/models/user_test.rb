@@ -102,7 +102,7 @@ class UserTest < ActiveSupport::TestCase
 
   test 'associated recommendations should be destroyed' do
     @user.save
-    @user.recommendations.create!(content: 'Lorem ipsum')
+    @user.recommendations.create!(title: 'Title', content: 'Lorem ipsum')
     assert_difference 'Recommendation.count', -1 do
       @user.destroy
     end
