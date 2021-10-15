@@ -16,11 +16,10 @@ jobs:
 
     services:
       postgres:
-        image: postgres
+        image: postgres:13
         env:
           POSTGRES_PASSWORD: postgres
-        ports:
-          - 5432:5432
+        ports: ['5432:5432']
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
@@ -31,6 +30,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Install dependent libraries
+        run: sudo apt-get install libpq-dev
 
       - name: Setup Ruby and install gems
         uses: ruby/setup-ruby@v1
@@ -43,5 +45,5 @@ jobs:
           DATABASE_PASSWORD: postgres
           RAILS_ENV: test
         run: |
-          bundle exec rake db:migrate
+          bundle exec rake db:setup
           bundle exec rails test
