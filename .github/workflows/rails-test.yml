@@ -13,13 +13,14 @@ on:
 jobs:
   rails-test:
     runs-on: ubuntu-latest
-    container: ruby
 
     services:
       postgres:
         image: postgres
         env:
           POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
@@ -33,10 +34,9 @@ jobs:
 
       - name: Setup Ruby and install gems
         uses: ruby/setup-ruby@v1
-        env:
-          ImageOS: ubuntu20
         with:
           bundler-cache: true
+
       - name: Run rails test
         env:
           DATABASE_USERNAME: postgres
