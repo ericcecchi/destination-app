@@ -4,3 +4,8 @@ if ! bundle exec rails db:migrate;
 then
   exit 1
 fi
+
+if ! bundle exec rake after_party:run;
+then
+  exit 1
+fi
