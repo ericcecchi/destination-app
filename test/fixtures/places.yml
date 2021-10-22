@@ -8,7 +8,7 @@
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  external_place_id :string
-#  locale_id         :integer
+#  locale_id         :bigint
 #
 # Indexes
 #

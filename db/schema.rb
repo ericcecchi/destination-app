@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_07_015915) do
+ActiveRecord::Schema.define(version: 2021_10_22_184628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "guide_recommendations", force: :cascade do |t|
+    t.bigint "guide_id", null: false
+    t.bigint "recommendation_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["guide_id"], name: "index_guide_recommendations_on_guide_id"
+    t.index ["recommendation_id"], name: "index_guide_recommendations_on_recommendation_id"
+  end
+
+  create_table "guides", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.bigint "locale_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["locale_id"], name: "index_guides_on_locale_id"
+    t.index ["user_id"], name: "index_guides_on_user_id"
+  end
 
   create_table "locales", force: :cascade do |t|
     t.string "name"
@@ -21,13 +41,13 @@ ActiveRecord::Schema.define(version: 2021_10_07_015915) do
     t.string "hero_image_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "place_id", null: false
+    t.bigint "place_id", null: false
     t.index ["place_id"], name: "index_locales_on_place_id"
   end
 
   create_table "places", force: :cascade do |t|
     t.string "name"
-    t.integer "locale_id"
+    t.bigint "locale_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.jsonb "details"
@@ -38,10 +58,10 @@ ActiveRecord::Schema.define(version: 2021_10_07_015915) do
 
   create_table "recommendations", force: :cascade do |t|
     t.text "content"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "place_id"
+    t.bigint "place_id"
     t.string "title"
     t.index ["place_id"], name: "index_recommendations_on_place_id"
     t.index ["user_id", "created_at"], name: "index_recommendations_on_user_id_and_created_at"
@@ -68,6 +88,10 @@ ActiveRecord::Schema.define(version: 2021_10_07_015915) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "guide_recommendations", "guides"
+  add_foreign_key "guide_recommendations", "recommendations"
+  add_foreign_key "guides", "locales"
+  add_foreign_key "guides", "users"
   add_foreign_key "locales", "places"
   add_foreign_key "places", "locales"
   add_foreign_key "recommendations", "places"

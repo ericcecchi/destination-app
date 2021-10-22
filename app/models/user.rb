@@ -24,6 +24,7 @@
 #
 class User < ApplicationRecord
   has_many :recommendations, dependent: :destroy
+  has_many :guides, dependent: :destroy
 
   attr_accessor :remember_token, :activation_token, :reset_token
 
