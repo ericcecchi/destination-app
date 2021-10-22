@@ -20,11 +20,19 @@
 #
 
 one:
-  name: MyString
-  content: MyString
-  hero_image_url: MyString
+  name: Some
+  content: City
+  hero_image_url: lorem.jpeg
+  place_id: 1
 
 two:
-  name: MyString
-  content: MyString
-  hero_image_url: MyString
+  name: Other
+  content: City
+  hero_image_url: lorem.jpeg
+  place_id: 2
+
+three:
+  name: Yet
+  content: Another City
+  hero_image_url: lorem.jpeg
+  place_id: 2

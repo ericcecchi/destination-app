@@ -1,0 +1,7 @@
+<% provide :title, "Cities" %>
+<h1 style="font-size: 3rem; line-height: 1;" class="text-center mx-5 pt-10">Cities</h1>
+<ul>
+  <%= render @locales || "No cities available." %>
+</ul>
+
+<%= will_paginate %>

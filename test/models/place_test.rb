@@ -10,7 +10,7 @@
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  external_place_id :string
-#  locale_id         :bigint
+#  locale_id         :integer
 #
 # Indexes
 #

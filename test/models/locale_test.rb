@@ -10,7 +10,7 @@
 #  name           :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#  place_id       :bigint           not null
+#  place_id       :integer          not null
 #
 # Indexes
 #

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get '/cities',     to: 'locales#index'
   resources :recommendations
   root   'static_pages#home'
   get    '/about',   to: 'static_pages#about'
