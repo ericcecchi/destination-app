@@ -39,6 +39,11 @@ jobs:
         with:
           bundler-cache: true
 
+      - name: Install npm packages and build app
+        run: |
+          yarn install --production
+          bin/webpack
+
       - name: Run rails test
         env:
           DATABASE_HOST: localhost
