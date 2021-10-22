@@ -9,8 +9,8 @@
 #  title      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  place_id   :integer
-#  user_id    :integer          not null
+#  place_id   :bigint
+#  user_id    :bigint           not null
 #
 # Indexes
 #
@@ -26,6 +26,8 @@
 class Recommendation < ApplicationRecord
   belongs_to :user, optional: false
   belongs_to :place, optional: true
+  has_many :guide_recommendations, dependent: :destroy
+  has_many :guides, through: :guide_recommendations
 
   validates :user_id, presence: true
   validates :title, presence: true

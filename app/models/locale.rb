@@ -10,7 +10,7 @@
 #  name           :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#  place_id       :integer          not null
+#  place_id       :bigint           not null
 #
 # Indexes
 #
@@ -23,4 +23,5 @@
 class Locale < ApplicationRecord
   belongs_to :place, optional: false
   has_many :places, dependent: :nullify
+  has_many :guides, dependent: :nullify
 end
