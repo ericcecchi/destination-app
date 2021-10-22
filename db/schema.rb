@@ -21,13 +21,13 @@ ActiveRecord::Schema.define(version: 2021_10_07_015915) do
     t.string "hero_image_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "place_id", null: false
+    t.integer "place_id", null: false
     t.index ["place_id"], name: "index_locales_on_place_id"
   end
 
   create_table "places", force: :cascade do |t|
     t.string "name"
-    t.bigint "locale_id"
+    t.integer "locale_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.jsonb "details"
@@ -38,10 +38,10 @@ ActiveRecord::Schema.define(version: 2021_10_07_015915) do
 
   create_table "recommendations", force: :cascade do |t|
     t.text "content"
-    t.bigint "user_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "place_id"
+    t.integer "place_id"
     t.string "title"
     t.index ["place_id"], name: "index_recommendations_on_place_id"
     t.index ["user_id", "created_at"], name: "index_recommendations_on_user_id_and_created_at"
