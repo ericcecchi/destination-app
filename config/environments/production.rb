@@ -66,7 +66,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  host = 'warm-depths-61226.herokuapp.com'
+  host = 'destination-app-production.herokuapp.com'
   config.action_mailer.default_url_options = { host: host }
   ActionMailer::Base.smtp_settings = {
     address: 'smtp.sendgrid.net',
