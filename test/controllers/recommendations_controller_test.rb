@@ -32,7 +32,7 @@ class RecommendationsControllerTest < ActionDispatch::IntegrationTest
   test 'should create recommendation' do
     log_in_as @user
     assert_difference('Recommendation.count') do
-      post recommendations_url, params: { recommendation: { title: 'Title', content: 'Blarg', user_id: @user.id } }
+      post recommendations_url, params: { recommendation: { title: 'Title', content: 'Blarg' } }
     end
 
     assert_redirected_to @user
