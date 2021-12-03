@@ -9,7 +9,7 @@ class GuidesController < ApplicationController
   end
 
   def create
-    @guide = current_user.guides.build(guide_params)
+    @guide = current_user.guides.build(create_params)
 
     if @guide.save
       redirect_to current_user, notice: 'Guide was successfully created.'
@@ -21,7 +21,7 @@ class GuidesController < ApplicationController
   private
 
   # Only allow a list of trusted parameters through.
-  def guide_params
+  def create_params
     params.require(:guide).permit(:locale_id, :title, :description)
   end
 end
