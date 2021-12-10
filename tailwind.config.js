@@ -1,23 +1,133 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
+const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
-  purge: [
-    './app/views/**/*.html.erb',
-    './app/helpers/**/*.rb',
-    './app/javascript/**/*.{js,jsx,ts,tsx,vue}',
-  ],
-  mode: 'jit',
-  darkMode: 'media', // or 'media' or 'class'
-  theme: {
-    extend: {
-      fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
-      },
+    purge: [
+        './app/views/**/*.html.erb',
+        './app/helpers/**/*.rb',
+        './app/javascript/**/*.{js,jsx,ts,tsx,vue}',
+    ],
+    mode: 'jit',
+    darkMode: 'media', // or 'media' or 'class'
+    theme: {
+        extend: {
+            fontFamily: {
+                sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+            },
+            colors: {
+                gray: {
+                    50: '#f2f2f3',
+                    100: '#e5e6e6',
+                    200: '#cacdce',
+                    300: '#b0b4b5',
+                    400: '#959b9d',
+                    500: '#7b8184',
+                    600: '#62686a',
+                    700: '#4a4e4f',
+                    800: '#313435',
+                    900: '#191a1a'
+                },
+                cerulean: {
+                    50: '#dee6ea',
+                    100: '#beced5',
+                    200: '#9eb6c1',
+                    300: '#7f9fad',
+                    400: '#5f889a',
+                    500: '#3d7287',
+                    600: '#335b6b',
+                    700: '#294450',
+                    800: '#1e2f36',
+                    900: '#141b1e',
+                },
+                blue: {
+                    50: '#e6e3ef',
+                    100: '#cdc8df',
+                    200: '#b5aecf',
+                    300: '#9c94c0',
+                    400: '#847cb0',
+                    500: '#6c64a1',
+                    600: '#534d92',
+                    700: '#3b387a',
+                    800: '#2b2751',
+                    900: '#1a172a',
+                },
+                mulberry: {
+                    50: '#ebe1ed',
+                    100: '#d8c5dc',
+                    200: '#c5a9cb',
+                    300: '#b28eba',
+                    400: '#9e73a9',
+                    500: '#8b5898',
+                    600: '#783e88',
+                    700: '#593065',
+                    800: '#3c2243',
+                    900: '#211524',
+                },
+                rose: {
+                    50: '#eee1e6',
+                    100: '#ddc5ce',
+                    200: '#cda9b7',
+                    300: '#bb8da0',
+                    400: '#aa728a',
+                    500: '#985774',
+                    600: '#863d5f',
+                    700: '#632f47',
+                    800: '#432231',
+                    900: '#24151c',
+                },
+                vermillion: {
+                    50: '#ede2de',
+                    100: '#dcc7bf',
+                    200: '#caaca0',
+                    300: '#b89283',
+                    400: '#a57867',
+                    500: '#925f4b',
+                    600: '#794a37',
+                    700: '#5a382b',
+                    800: '#3d271f',
+                    900: '#221713',
+                },
+                yellow: {
+                    50: '#e6e5d6',
+                    100: '#cecdae',
+                    200: '#b5b587',
+                    300: '#9d9d62',
+                    400: '#84873d',
+                    500: '#6d6f34',
+                    600: '#57582b',
+                    700: '#414222',
+                    800: '#2d2e1a',
+                    900: '#1b1a10',
+                },
+                harlequin: {
+                    50: '#dde8d8',
+                    100: '#bcd1b3',
+                    200: '#9bbb8f',
+                    300: '#7ba56c',
+                    400: '#5a8f4a',
+                    500: '#457737',
+                    600: '#395f2d',
+                    700: '#2c4724',
+                    800: '#20311b',
+                    900: '#151c11',
+                },
+                spring_green: {
+                    50: '#dae8e0',
+                    100: '#b7d1c3',
+                    200: '#93bba6',
+                    300: '#70a58a',
+                    400: '#4c8f6f',
+                    500: '#37775a',
+                    600: '#2e5f48',
+                    700: '#254737',
+                    800: '#1c3126',
+                    900: '#121c17',
+                },
+            }
+        },
     },
-  },
-  variants: {
-    extend: {},
-  },
-  plugins: [
-    require('@tailwindcss/forms'),
-  ],
+    variants: {
+        extend: {},
+    },
+    plugins: [
+        require('@tailwindcss/forms'),
+    ],
 }

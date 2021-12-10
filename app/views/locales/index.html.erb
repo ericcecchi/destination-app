@@ -1,7 +1,7 @@
-<% provide :title, "Cities" %>
+<% provide :title, "Destinations" %>
 <%= render 'shared/main' do %>
   <%= render 'shared/main_heading', class: 'text-center' do %>
-    Cities
+    Destinations
   <% end %>
 
   <div class="mt-10">
@@ -9,7 +9,7 @@
   </div>
 
   <ul>
-    <%= render @locales %>
+    <%= render @locales || "No destinations available." %>
   </ul>
 
   <div class="mt-10">
