@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-  resources :locales, only: %i[index show], as: 'cities', path: '/cities'
+  resources :locales, only: %i[index show], as: 'destinations', path: '/destinations'
   resources :recommendations
   resources :users
   resources :guides, only: %i[new create]
