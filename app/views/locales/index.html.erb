@@ -1,7 +1,18 @@
 <% provide :title, "Cities" %>
-<h1 style="font-size: 3rem; line-height: 1;" class="text-center mx-5 pt-10">Cities</h1>
-<ul>
-  <%= render @locales || "No cities available." %>
-</ul>
+<%= render 'shared/main' do %>
+  <%= render 'shared/main_heading', class: 'text-center' do %>
+    Cities
+  <% end %>
 
-<%= will_paginate %>
+  <div class="mt-10">
+    <%= will_paginate %>
+  </div>
+
+  <ul>
+    <%= render @locales %>
+  </ul>
+
+  <div class="mt-10">
+    <%= will_paginate %>
+  </div>
+<% end %>

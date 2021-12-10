@@ -1,0 +1,26 @@
+<% provide(:title, "Guides - #{@locale.name}") %>
+
+<header style="background-image: url(&#34;<%= @locale.hero_image_url %>&#34;); height: 25rem; background-size: cover; background-position: start;">
+  <div class="w-full h-full p-16 pb-0 pl-0 flex flex-col justify-end" style="background-color: rgba(0, 0, 0, .3);">
+    <div class="dark:bg-gray-800 bg-gray-200 p-10 w-max">
+      <%= render 'shared/main_heading' do %>
+        <%= @locale.name %>
+      <% end %>
+    </div>
+  </div>
+</header>
+<h2 class="text-2xl p-10 w-full dark:bg-gray-800 bg-gray-200 font-light"><%= @locale.content %></h2>
+
+<%= render 'shared/main' do %>
+  <div class="mt-10">
+    <%= will_paginate @guides %>
+  </div>
+
+  <ul class="grid grid-cols-2 md:grid-cols-3 gap-4">
+    <%= render @guides, template: 'guides/guide' %>
+  </ul>
+
+  <div class="mt-10">
+    <%= will_paginate @guides %>
+  </div>
+<% end %>
