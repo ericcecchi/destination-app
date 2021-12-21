@@ -1,33 +1,31 @@
-<div class="relative bg-white dark:bg-gray-900 overflow-hidden flex flex-wrap-reverse lg:flex-wrap items-stretch">
+<div class="relative max-w-7xl mx-auto bg-white dark:bg-gray-900 overflow-hidden flex flex-wrap-reverse lg:flex-wrap items-stretch">
   <div>
-    <div class="max-w-7xl mx-auto">
-      <div class="relative z-10 pb-8 bg-white dark:bg-gray-900 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
-        <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white dark:text-gray-900 transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-          <polygon points="50,0 100,0 50,100 0,100"/>
-        </svg>
+    <div class="relative pb-8 sm:pb-16 md:pb-20 lg:pb-28 xl:pb-32 lg:max-w-2xl lg:w-full lg:bg-vermillion-50 dark:lg:bg-vermillion-800">
+      <svg class="hidden z-10 lg:block absolute right-0 inset-y-0 h-full w-48 text-vermillion-50 dark:text-vermillion-800 transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <polygon points="50,0 100,0 50,100 0,100"/>
+      </svg>
 
-        <main class="pt-10 mx-auto max-w-7xl px-4 sm:pt-12 sm:px-6 md:pt-16 lg:pt-20 lg:px-8 xl:pt-28">
-          <div class="sm:text-center lg:text-left">
-            <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-gray-50 sm:text-5xl md:text-6xl max-w-lg sm:mx-auto lg:mx-0">
-              Guides to your next destination, curated by local tastemakers.
-            </h1>
-
-            <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start items-center">
-              <%= link_to "Sign up", signup_path, class: "btn btn-primary btn-lg" %>
-              <div class="mt-2 sm:mt-0 sm:ml-5 text-base">
-                or
-                <%= link_to "learn more", "#", class: "font-bold underline text-cerulean-500" %>
-              </div>
-            </div>
+      <main class="max-w-7xl">
+        <div class="h-96 sm:h-auto relative w-full flex flex-col justify-end">
+          <div class="sm:hidden absolute inset-y-0 right-0">
+            <img class="h-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" srcset="<%= image_url 'home-hero.png' %>, <%= image_url 'home-hero@2x.png' %> 2x" alt="">
           </div>
-        </main>
-      </div>
+
+          <h1 class="relative z-1 bg-vermillion-50 dark:bg-vermillion-800 pt-4 px-4 sm:pt-12 sm:px-6 md:pt-16 lg:pt-20 lg:px-8 xl:pt-28 text-xl tracking-tight font-bold text-gray-900 dark:text-gray-50 sm:text-5xl md:text-6xl w-2/3 sm:w-auto">
+            Guides to your next destination, curated by local tastemakers.
+          </h1>
+        </div>
+
+        <div class="bg-vermillion-50 dark:bg-vermillion-800 py-8 px-4 sm:px-6 sm:pb-16 md:pb-20 lg:px-8 lg:pb-28 xl:pb-32">
+          <%= link_to "Sign up", signup_path, class: "btn btn-primary" %>
+        </div>
+      </main>
     </div>
   </div>
 
-  <div class="relative flex-grow">
-    <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-      <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" srcset="<%= image_url 'home-hero.png' %>, <%= image_url 'home-hero@2x.png' %> 2x" alt="">
+  <div class="relative flex-grow hidden sm:block">
+    <div class="lg:absolute lg:inset-y-0 lg:right-0 w-full h-full ">
+      <img class="w-full h-full object-cover" srcset="<%= image_url 'home-hero.png' %>, <%= image_url 'home-hero@2x.png' %> 2x" alt="">
     </div>
   </div>
 </div>
