@@ -1,26 +1,28 @@
 <% provide(:title, "Guides - #{@locale.name}") %>
 
-<header style="background-image: url(&#34;<%= @locale.hero_image_url %>&#34;); height: 25rem; background-size: cover; background-position: start;">
-  <div class="w-full h-full p-16 pb-0 pl-0 flex flex-col justify-end" style="background-color: rgba(0, 0, 0, .3);">
-    <div class="dark:bg-gray-800 bg-gray-200 p-10 w-max">
-      <%= render 'shared/main_heading' do %>
-        <%= @locale.name %>
-      <% end %>
+<div class="max-w-7xl mx-auto">
+  <header style="background-image: url('<%= @locale.hero_image_url %>'); height: 25rem; background-size: cover;">
+    <div class="w-full h-full flex flex-col justify-end" style="background-color: rgba(0, 0, 0, .3);">
+      <div class="dark:bg-mulberry-800 bg-mulberry-50 pt-4 px-4 sm:pt-6 sm:px-6 lg:pt-8 lg:px-8 w-max">
+        <%= render 'shared/main_heading' do %>
+          <%= @locale.name %>
+        <% end %>
+      </div>
     </div>
-  </div>
-</header>
-<h2 class="text-2xl p-10 w-full dark:bg-gray-800 bg-gray-200 font-light"><%= @locale.content %></h2>
+  </header>
+  <p class="text-lg p-4 sm:p-6 lg:p-8 w-full dark:bg-mulberry-800 bg-mulberry-50"><%= @locale.content %></p>
 
-<%= render 'shared/main' do %>
-  <div class="mt-10">
-    <%= will_paginate @guides %>
-  </div>
+  <%= render 'shared/main' do %>
+    <div class="mt-10">
+      <%= will_paginate @guides %>
+    </div>
 
-  <ul class="grid grid-cols-2 md:grid-cols-3 gap-4">
-    <%= render @guides, template: 'guides/guide' %>
-  </ul>
+    <ul class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <%= render @guides, template: 'guides/guide' %>
+    </ul>
 
-  <div class="mt-10">
-    <%= will_paginate @guides %>
-  </div>
-<% end %>
+    <div class="mt-10">
+      <%= will_paginate @guides %>
+    </div>
+  <% end %>
+</div>
