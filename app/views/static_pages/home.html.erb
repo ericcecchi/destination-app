@@ -1,31 +1,55 @@
 <div class="relative max-w-7xl mx-auto bg-white dark:bg-gray-900 overflow-hidden flex flex-wrap-reverse lg:flex-wrap items-stretch">
   <div>
-    <div class="relative pb-8 sm:pb-16 md:pb-20 lg:pb-28 xl:pb-32 lg:max-w-2xl lg:w-full lg:bg-vermillion-50 dark:lg:bg-vermillion-800">
+    <div class="relative lg:max-w-2xl lg:w-full lg:bg-vermillion-50 dark:lg:bg-vermillion-800">
       <svg class="hidden z-10 lg:block absolute right-0 inset-y-0 h-full w-48 text-vermillion-50 dark:text-vermillion-800 transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
         <polygon points="50,0 100,0 50,100 0,100"/>
       </svg>
 
-      <main class="max-w-7xl">
-        <div class="h-96 sm:h-auto relative w-full flex flex-col justify-end">
-          <div class="sm:hidden absolute inset-y-0 right-0">
-            <img class="h-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" srcset="<%= image_url 'home-hero.png' %>, <%= image_url 'home-hero@2x.png' %> 2x" alt="">
+      <header class="max-w-7xl flex flex-col h-full">
+        <div class="h-96 lg:h-auto relative w-full flex flex-col justify-end">
+          <div class="lg:hidden absolute inset-y-0 right-0 w-full">
+            <img class="object-cover w-full h-full" srcset="<%= image_url 'home-hero.png' %>, <%= image_url 'home-hero@2x.png' %> 2x" alt="">
           </div>
 
-          <h1 class="relative z-1 bg-vermillion-50 dark:bg-vermillion-800 pt-4 px-4 sm:pt-12 sm:px-6 md:pt-16 lg:pt-20 lg:px-8 xl:pt-28 text-xl tracking-tight font-bold text-gray-900 dark:text-gray-50 sm:text-5xl md:text-6xl w-2/3 sm:w-auto">
+          <h1 class="relative z-1 bg-vermillion-50 dark:bg-vermillion-800 pt-4 px-4 lg:pt-20 lg:px-8 xl:pt-28 text-xl tracking-tight font-bold text-gray-900 dark:text-gray-50 sm:text-3xl md:text-4xl w-2/3 lg:w-auto">
             Guides to your next destination, curated by local tastemakers.
           </h1>
         </div>
 
-        <div class="bg-vermillion-50 dark:bg-vermillion-800 py-8 px-4 sm:px-6 sm:pb-16 md:pb-20 lg:px-8 lg:pb-28 xl:pb-32">
-          <%= link_to "Sign up", signup_path, class: "btn btn-primary" %>
+        <div class="bg-vermillion-50 dark:bg-vermillion-800 py-8 px-4 lg:px-8 lg:pb-28 xl:pb-32">
+          <%= form_with url: "/search", method: :get do |form| %>
+            <div class="flex items-end">
+              <div>
+                <%= form.label :query, "Search destinations", class: 'text-sm sm:text-base' %>
+                <%= form.text_field :query, placeholder: 'e.g. Chicago', class: 'w-full sm:w-auto' %>
+              </div>
+
+              <div class="flex-shrink-0">
+                <%= form.button type: 'submit', class: 'btn btn-primary ml-4 flex items-center' do %>
+                  Let’s&nbsp;go&nbsp;
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
         </div>
-      </main>
+      </header>
     </div>
   </div>
 
-  <div class="relative flex-grow hidden sm:block">
+  <div class="relative flex-grow hidden lg:block">
     <div class="lg:absolute lg:inset-y-0 lg:right-0 w-full h-full ">
       <img class="w-full h-full object-cover" srcset="<%= image_url 'home-hero.png' %>, <%= image_url 'home-hero@2x.png' %> 2x" alt="">
     </div>
   </div>
 </div>
+
+<main class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-8">
+  <h2 class="font-bold text-l sm:text-2xl mb-4">Top Destinations</h2>
+
+  <ul class="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
+    <%= render @locales || "No destinations available." %>
+  </ul>
+</main>

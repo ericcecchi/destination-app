@@ -2,7 +2,9 @@
 
 # Controller for static pages
 class StaticPagesController < ApplicationController
-  def home; end
+  def home
+    @locales = Locale.order('name').first(8)
+  end
 
   def about; end
 end

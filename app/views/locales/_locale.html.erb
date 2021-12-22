@@ -1,9 +1,8 @@
-<li data-list="destinations" class="border-gray-500 overflow-hidden" style="border-width:1px;width:75%;margin:15px auto;text-align:center;border-radius:20px;" id="locale-<%= locale.id %>">
+<li data-list="destinations" class="relative rounded-2xl w-full h-40 sm:h-56 lg:h-64 overflow-hidden" id="locale-<%= locale.id %>">
   <a href="<%= destination_path locale %>">
-    <h2 class="text-xl" style="padding:10px 20px;"><%= locale.name %></h2>
-    <p style="padding:10px 20px;"><%= locale.content %></p>
-    <div class="w-full overflow-hidden">
-      <%= image_tag local_url(locale.hero_image_url), class: "object-cover w-full h-auto" %>
-    </div>
+    <%= image_tag local_url(locale.hero_image_url), class: "object-cover w-full h-full" %>
+    <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black via-transparent"></div>
+
+    <h2 class="text-l sm:text-xl text-white font-bold absolute bottom-0 left-0 px-4 py-3"><%= locale.name %></h2>
   </a>
 </li>
