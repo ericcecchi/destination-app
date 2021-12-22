@@ -86,7 +86,7 @@
         <%= link_to "Settings", edit_user_path(current_user), class: "text-gray-500 block hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
         <%= link_to "Log out", logout_path, method: :delete, class: "text-gray-500 block hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
       <% else %>
-        <%= link_to "Log in", login_path, method: :delete, class: "text-gray-500 block hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
+        <%= link_to "Log in", login_path, class: "text-gray-500 block hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
       <% end %>
     </div>
   </div>
