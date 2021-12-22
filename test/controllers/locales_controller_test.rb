@@ -20,7 +20,6 @@ class LocalesControllerTest < ActionDispatch::IntegrationTest
         assert_select el, 'a'
         assert_select el, 'a h2', text: instance.name # title
         assert_select el, 'img[src=?]', "/assets/images/#{instance.hero_image_url}", 1 # cover
-        assert_select el, 'p', text: instance.content # description
       end
     end
   end
