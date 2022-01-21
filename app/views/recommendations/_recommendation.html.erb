@@ -1,7 +1,12 @@
-<li id="recommendation-<%= recommendation.id %>" class="my-10">
-  <h3 class="text-xl font-bold"><%= recommendation.title %></h3>
-  <div class="mt-2"><%= recommendation.content %></div>
-  <div class="mt-2 text-sm opacity-75">
-    Created <%= time_ago_in_words(recommendation.created_at) %> ago
+<li class="mt-10 rounded-lg flex flex-col justify-between shadow-lg p-8">
+  <div href="<%= recommendation_path recommendation %>">
+    <h3 class="text-xl font-bold"><%= recommendation.title %></h3>
+    <div class="mt-2" style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden;"><%= recommendation.content %></div>
   </div>
+  <a class="border-cerulean-500 mt-4 -ml-2 rounded-md py-1 px-2 w-max text-cerulean-500 border-2 text-sm items-center font-bold flex justify-between" href="<%= recommendation_path recommendation %>">
+    More info
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+    </svg>
+  </a>
 </li>

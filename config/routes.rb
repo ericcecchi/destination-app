@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :locales, only: %i[index show], as: 'destinations', path: '/destinations'
   resources :recommendations
   resources :users
-  resources :guides, only: %i[new create]
+  resources :guides, only: %i[new create show]
   resources :account_activations, only: %i[create edit]
   resources :password_resets, only: %i[new create edit update]
   resources :recommendations, except: %i[index]
