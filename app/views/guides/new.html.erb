@@ -1,33 +1,25 @@
 <%= render 'shared/main' do %>
-  <%= render 'shared/main_heading' do %>
+  <%= render 'shared/main_heading', classes: 'text-center' do %>
     Create a Guide
   <% end %>
 
   <div class="sm:max-w-2xl mt-10 mx-auto">
     <%= form_with(model: @guide, local: true) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
-      <div class="flex flex-col filed w-full">
-        <div class="grid grid-cols-2 w-full">
-          <div class="mr-2 mb-4 pr-2 w-full">
-            <%= f.label :title %>
-            <%= f.text_field :title, class: 'w-full' %>
-          </div>
-          <div data-controller="datalist" class="mx-2 pl-2 mb-4 w-full">
-            <%= f.label :locale_id %>
-            <input required data-datalist-target="input" data-action="input->datalist#update blur->datalist#validate" class="form-input w-full form-select" type="text" list="guide_locale_id" />
-            <datalist data-datalist-target="list" id="guide_locale_id">
-              <% Locale.all.each do |locale| %>
-                <option data-value="<%= locale.id %>" value="<%= locale.name %>"></option>
-              <% end %>
-            </datalist>
-            <%= f.hidden_field :locale_id, 'data-datalist-target': "hidden" %>
-          </div>
+
+      <div class="field w-full">
+        <div class="mb-4 w-full">
+          <%= render 'shared/locale_select', form: f %>
         </div>
+
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'w-full mb-4' %>
+
         <%= f.label :description %>
-        <%= f.text_area :description %>
-        <%= f.submit "Create guide", class: "btn btn-primary mt-5" %>
+        <%= f.text_area :description, class: "w-full" %>
       </div>
+
+      <%= f.submit "Create guide", class: "btn btn-primary mt-5" %>
     <% end %>
   </div>
 <% end %>
-

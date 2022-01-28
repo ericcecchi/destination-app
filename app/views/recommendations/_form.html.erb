@@ -2,10 +2,14 @@
   <%= render 'shared/error_messages', object: f.object %>
 
   <div class="field w-full">
+    <div class="mb-4 w-full">
+      <%= render 'shared/locale_select', form: f %>
+    </div>
+
     <%= f.label :title %>
     <%= f.text_field :title, class: "w-full mb-4" %>
 
-    <%= f.label :content %>
+    <%= f.label :content, "Description" %>
     <%= f.text_area :content, class: "w-full" %>
   </div>
 
