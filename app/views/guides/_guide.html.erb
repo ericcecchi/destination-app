@@ -1,14 +1,38 @@
-<li class="flex flex-col justify-between bg-inherit">
-  <a href="<%= guide_path guide %>">
-    <div class="p-5 w-full flex flex-col justify-start">
-      <h2 class="font-bold text-2xl m-5"><%= guide.title %></h2>
-      <h3 class="m-5 text-xl"><%= guide.description %></h3>
+<li class="flex flex-col p-5 gap-2 justify-<%= local_assigns[:extra] && extra ? 'start' : 'between' %> bg-inherit <%= 'shadow-lg rounded-lg' if local_assigns[:extra] && extra %>">
+  <% unless local_assigns[:extra] && extra %>
+    <a href="<%= guide_path guide %>">
+  <% end %>
+    <div class="<%= 'p-5' unless local_assigns[:extra] && extra %> w-full gap-3 flex flex-col justify-start">
+      <div class="flex justify-between items-start flex-wrap-reverse md:flex-nowrap">
+        <h2 class="font-bold text-xl"><%= guide.title %></h2>
+        <% if local_assigns[:destination] %>
+          <a class="flex gap-1 items-center" href="<%= destination_path guide.locale %>">
+            <p><%= guide.locale.name %></p>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+            </svg>
+          </a>
+        <% end %>
+      </div>
+      <h3 class="text-md"><%= guide.description %></h3>
     </div>
-  </a>
-  <div class="m-10 mt-0">
-    <a class="flex" href="<%= user_path guide.user %>">
-      <%= gravatar_for(guide.user, size: 32) %>
-      <p class="ml-2 mt-1"><%= guide.user.name %></p>
+  <% unless local_assigns[:extra] && extra %>
     </a>
-  </div>
+  <% end %>
+  <% unless local_assigns[:no_user] && no_user %>
+    <div class="ml-5">
+      <a class="flex items-center" href="<%= user_path guide.user %>">
+        <%= gravatar_for(guide.user, size: 32) %>
+        <p class="ml-2 mt-1"><%= guide.user.name %></p>
+      </a>
+    </div>
+  <% end %>
+  <% if local_assigns[:extra] && extra %>
+    <a class="border-cerulean-500 mt-4 -ml-2 rounded-md py-1 px-2 w-max text-cerulean-500 border-2 text-sm items-center font-bold flex justify-between" href="<%= guide_path guide %>">
+      More info
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+      </svg>
+    </a>
+  <% end %>
 </li>

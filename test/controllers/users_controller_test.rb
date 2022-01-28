@@ -102,4 +102,14 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to root_url
   end
+
+  test 'should get guides' do
+    get "#{root_url}users/#{@non_admin.id}/guides"
+    assert_response :success
+  end
+
+  test 'should get recommendations' do
+    get "#{root_url}users/#{@non_admin.id}/recommendations"
+    assert_response :success
+  end
 end
