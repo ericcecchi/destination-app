@@ -11,15 +11,23 @@ class UsersController < ApplicationController
     @users = User.where(activated: true).paginate(page: params[:page])
   end
 
-  # rubocop:disable Metrics/AbcSize
   def show
     @user = User.find(params[:id])
-    @recommendations = @user.recommendations.paginate(page: params[:page])
+    @recommendations = @user.recommendations.limit(5)
+    @guides = @user.guides.limit(5)
     activated_user unless current_user?(@user) || current_user.activated?
-    @recommendation = current_user.recommendations.build if current_user?(@user) && current_user.activated?
     redirect_to root_url unless @user.activated? || current_user?(@user)
   end
-  # rubocop:enable Metrics/AbcSize
+
+  def guides
+    @user = User.find(params[:id])
+    @guides = @user.guides.paginate(page: params[:page], per_page: 35)
+  end
+
+  def recommendations
+    @user = User.find(params[:id])
+    @recommendations = @user.recommendations.paginate(page: params[:page], per_page: 35)
+  end
 
   def new
     @user = User.new

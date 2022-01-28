@@ -1,0 +1,21 @@
+<% provide :title, "Guides - #{@user.name}" %>
+
+<%= render 'shared/main' do %>
+  <%= render 'shared/main_heading' do %>
+    Guides - <%= @user.name %>
+  <% end %>
+  <a class="flex gap-2 items-center my-6 ml-4 font-bold" href="<%= user_path @user %>">
+    <%= gravatar_for @user, size: 32 %>
+    <p><%= @user.name %></p>
+  </a>
+  <% if @guides.any? %>
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 my-6">
+      <% @guides.each do |guide| %>
+        <%= render guide, extra: true, no_user: true, destination: true %>
+      <% end %>
+    </div>
+    <%= will_paginate @guides %>
+  <% else %>
+    <p class="font-bold text-lg mt-6">No guides available.</p>
+  <% end %>
+<% end %>

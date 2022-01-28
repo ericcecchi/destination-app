@@ -17,10 +17,13 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     assert_select 'h1', text: @user.name
     assert_select 'img.gravatar'
     assert_match @user.recommendations.count.to_s, response.body
-    assert_select 'div.pagination'
-    @user.recommendations.paginate(page: 1).each do |recommendation|
+    assert_select 'div#guides'
+    assert_select 'div#recommendations'
+    @user.guides.limit(5).each do |guide|
+      assert_match guide.description, response.body
+    end
+    @user.recommendations.limit(5).each do |recommendation|
       assert_match recommendation.content, response.body
     end
-    assert_select '[aria-label=Pagination]', count: 1
   end
 end

@@ -1,0 +1,19 @@
+<% provide :title, "Recommendations - #{@user.name}" %>
+
+<%= render 'shared/main' do %>
+  <%= render 'shared/main_heading' do %>
+    Recommendations - <%= @user.name %>
+  <% end %>
+  <a class="flex gap-2 items-center my-6 ml-4 font-bold" href="<%= user_path @user %>">
+    <%= gravatar_for @user, size: 32 %>
+    <p><%= @user.name %></p>
+  </a>
+  <% if @recommendations.any? %>
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 my-6">
+      <%= render @recommendations %>
+    </div>
+    <%= will_paginate @recommendations %>
+  <% else %>
+    <p class="font-bold text-lg mt-6">No guides available.</p>
+  <% end %>
+<% end %>

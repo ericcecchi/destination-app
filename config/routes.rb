@@ -2,11 +2,14 @@
 
 Rails.application.routes.draw do
   root   'static_pages#home'
-  get    '/about',   to: 'static_pages#about'
-  get    '/signup',  to: 'users#new'
-  get    '/login',   to: 'sessions#new'
-  post   '/login',   to: 'sessions#create'
-  delete '/logout',  to: 'sessions#destroy'
+  get    '/about',            to: 'static_pages#about'
+  get    '/signup',           to: 'users#new'
+  get    '/login',            to: 'sessions#new'
+  post   '/login',            to: 'sessions#create'
+  delete '/logout',           to: 'sessions#destroy'
+  get    '/users/:id/guides', to: 'users#guides'
+  get    '/users/:id/recommendations',
+                              to: 'users#recommendations'
   resources :locales, only: %i[index show], as: 'destinations', path: '/destinations'
   resources :recommendations
   resources :users
