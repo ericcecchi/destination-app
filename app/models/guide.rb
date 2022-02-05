@@ -20,7 +20,7 @@
 #
 # Foreign Keys
 #
-#  fk_rails_...  (locale_id => locales.id)
+#  fk_rails_...  (locale_id => places.id)
 #  fk_rails_...  (user_id => users.id)
 #
 class Guide < ApplicationRecord

@@ -2,26 +2,23 @@
 
 # == Schema Information
 #
-# Table name: locales
+# Table name: places
 #
-#  id             :bigint           not null, primary key
-#  content        :string
-#  hero_image_url :string
-#  name           :string
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
-#  place_id       :bigint           not null
+#  id                :bigint           not null, primary key
+#  content           :text
+#  details           :jsonb
+#  image_url         :string
+#  name              :string
+#  type              :string
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  external_place_id :string
+#  parent_id         :integer
 #
 # Indexes
 #
-#  index_locales_on_place_id  (place_id)
+#  index_places_on_external_place_id  (external_place_id) UNIQUE
 #
-# Foreign Keys
-#
-#  fk_rails_...  (place_id => places.id)
-#
-class Locale < ApplicationRecord
-  belongs_to :place, optional: false
-  has_many :places, dependent: :nullify
+class Locale < Place
   has_many :guides, dependent: :nullify
 end

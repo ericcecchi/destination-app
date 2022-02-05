@@ -6,33 +6,28 @@ module Locales
     hash :params do
       string :name
       string :content
-      string :hero_image_url
+      string :image_url
     end
     string :external_place_id, default: nil
 
-    attr_reader :place, :locale
+    attr_reader :locale
 
     def execute
-      create_place if external_place_id.present?
-      create_locale
-      add_locale_to_place if place
+      create_locale if external_place_id.present?
+      update_locale
       locale
     end
 
-    def create_place
-      @place = compose(
+    def create_locale
+      @locale = compose(
         Places::CreateByPlaceId,
-        external_place_id: external_place_id
+        external_place_id: external_place_id,
+        type: 'Locale'
       )
     end
 
-    def create_locale
-      @locale = Locale.create!(params.merge({ place: place }))
-    end
-
-    def add_locale_to_place
-      place.locale = locale
-      place.save!
+    def update_locale
+      @locale.update!(params)
     end
   end
 end

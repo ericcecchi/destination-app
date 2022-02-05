@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_28_183103) do
+ActiveRecord::Schema.define(version: 2022_02_05_041504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,33 +36,33 @@ ActiveRecord::Schema.define(version: 2022_01_28_183103) do
     t.index ["user_id"], name: "index_guides_on_user_id"
   end
 
-  create_table "locales", force: :cascade do |t|
-    t.string "name"
-    t.string "content"
-    t.string "hero_image_url"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "place_id", null: false
-    t.index ["place_id"], name: "index_locales_on_place_id"
+  create_table "place_hierarchies", id: false, force: :cascade do |t|
+    t.integer "ancestor_id", null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations", null: false
+    t.index ["ancestor_id", "descendant_id", "generations"], name: "place_anc_desc_idx", unique: true
+    t.index ["descendant_id"], name: "place_desc_idx"
   end
 
   create_table "places", force: :cascade do |t|
     t.string "name"
-    t.bigint "locale_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.jsonb "details"
     t.string "external_place_id"
+    t.integer "parent_id"
+    t.string "image_url"
+    t.string "type"
+    t.text "content"
     t.index ["external_place_id"], name: "index_places_on_external_place_id", unique: true
-    t.index ["locale_id"], name: "index_places_on_locale_id"
   end
 
   create_table "recommendations", force: :cascade do |t|
     t.text "content"
-    t.bigint "user_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "place_id"
+    t.integer "place_id"
     t.string "title"
     t.index ["place_id"], name: "index_recommendations_on_place_id"
     t.index ["user_id", "created_at"], name: "index_recommendations_on_user_id_and_created_at"
@@ -91,10 +91,8 @@ ActiveRecord::Schema.define(version: 2022_01_28_183103) do
 
   add_foreign_key "guide_recommendations", "guides"
   add_foreign_key "guide_recommendations", "recommendations"
-  add_foreign_key "guides", "locales"
+  add_foreign_key "guides", "places", column: "locale_id"
   add_foreign_key "guides", "users"
-  add_foreign_key "locales", "places"
-  add_foreign_key "places", "locales"
   add_foreign_key "recommendations", "places"
   add_foreign_key "recommendations", "users"
 end
