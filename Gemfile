@@ -7,6 +7,7 @@ gem 'active_interaction', '~> 4.0'
 gem 'after_party'
 gem 'bcrypt',        '3.1.13'
 gem 'bootsnap',      '1.7.2', require: false
+gem 'closure_tree'
 gem 'faker',         '2.11.0'
 gem 'google_places', '2.0.0'
 gem 'jbuilder',      '2.10.0'

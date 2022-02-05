@@ -4,6 +4,7 @@ module Places
   # Interaction for creating a place given a Google Places place_id
   class CreateByPlaceId < ApplicationInteraction
     string :external_place_id
+    string :type
 
     def execute
       add_place_details unless place.details
@@ -19,7 +20,8 @@ module Places
 
     def place
       @place ||= Place.create_or_find_by(
-        external_place_id: external_place_id
+        external_place_id: external_place_id,
+        type: type
       )
     end
 
