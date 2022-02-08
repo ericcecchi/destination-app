@@ -14,8 +14,8 @@ class LocalesControllerTest < ActionDispatch::IntegrationTest
     assert_select 'ul li[data-list="destinations"]', max: 35, min: 1 do |els| # 35 `li`s
       els.each_with_index do |el, i|
         id = el.xpath('//li/@id').to_s.scan(/\d+/)[i]
-        instance = Locale.find(id)
-        # TODO: assert_select el, "a[href=?]", locale_path(instance.id)
+        instance = Destination.find(id)
+        # TODO: assert_select el, "a[href=?]", destination_path(instance.id)
         # Need to create individual guide list pages in method `show` first. ex: /destinations/1
         assert_select el, 'a'
         assert_select el, 'a h2', text: instance.name # title

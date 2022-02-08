@@ -7,7 +7,7 @@ namespace :after_party do
     puts "Running deploy task 'seed_locales_places'"
 
     # Put your task implementation HERE.
-    locales = [
+    destinations = [
       {
         params: {
           name: 'Chicago, IL',
@@ -34,8 +34,8 @@ namespace :after_party do
       }
     ]
 
-    locales.each do |locale|
-      Locales::Create.run!(locale)
+    destinations.each do |destination|
+      Destinations::Create.run!(destination)
     end
 
     # Update task as completed.  If you remove the line below, the task will
