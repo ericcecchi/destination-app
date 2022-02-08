@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class LocalesHelperTest < ActionView::TestCase
+class DestinationsHelperTest < ActionView::TestCase
   test 'local_url should return a local path for local files' do
     assert_equal '/assets/images/lorem.jpeg', local_url('lorem.jpeg')
   end

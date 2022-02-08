@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module Locales
-  # Interaction to create a locale
+module Destinations
+  # Interaction to create a destination
   class Create < ApplicationInteraction
     hash :params do
       string :name
@@ -10,24 +10,24 @@ module Locales
     end
     string :external_place_id, default: nil
 
-    attr_reader :locale
+    attr_reader :destination
 
     def execute
-      create_locale if external_place_id.present?
-      update_locale
-      locale
+      create_destination if external_place_id.present?
+      update_destination
+      destination
     end
 
-    def create_locale
-      @locale = compose(
+    def create_destination
+      @destination = compose(
         Places::CreateByPlaceId,
         external_place_id: external_place_id,
-        type: 'Locale'
+        type: 'Destination'
       )
     end
 
-    def update_locale
-      @locale.update!(params)
+    def update_destination
+      @destination.update!(params)
     end
   end
 end

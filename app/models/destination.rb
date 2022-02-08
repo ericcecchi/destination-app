@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: places
@@ -17,21 +19,6 @@
 #
 #  index_places_on_external_place_id  (external_place_id) UNIQUE
 #
-
-three:
-  name: Some
-  content: City
-  image_url: lorem.jpeg
-  type: Locale
-
-four:
-  name: Other
-  content: City
-  image_url: lorem.jpeg
-  type: Locale
-
-five:
-  name: Yet
-  content: Another City
-  image_url: lorem.jpeg
-  type: Locale
+class Destination < Place
+  has_many :guides, dependent: :nullify
+end
