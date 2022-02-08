@@ -25,11 +25,11 @@
 one:
   title: This is a guide
   description: This is a description of the guide
-  locale: one
+  locale: three
   user: michael
 
 two:
   title: This is another guide
   description: Yet another description
-  locale: two
+  locale: four
   user: archer

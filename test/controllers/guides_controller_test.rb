@@ -2,7 +2,7 @@ require "test_helper"
 
 class GuidesControllerTest < ActionDispatch::IntegrationTest
   def setup
-    @locale = locales(:one)
+    @locale = locales(:four)
     @user = users(:michael)
   end
 
