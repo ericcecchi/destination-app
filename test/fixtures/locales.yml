@@ -18,20 +18,20 @@
 #  index_places_on_external_place_id  (external_place_id) UNIQUE
 #
 
-one:
+three:
   name: Some
   content: City
-  hero_image_url: lorem.jpeg
-  place_id: 1
+  image_url: lorem.jpeg
+  type: Locale
 
-two:
+four:
   name: Other
   content: City
-  hero_image_url: lorem.jpeg
-  place_id: 2
+  image_url: lorem.jpeg
+  type: Locale
 
-three:
+five:
   name: Yet
   content: Another City
-  hero_image_url: lorem.jpeg
-  place_id: 2
+  image_url: lorem.jpeg
+  type: Locale

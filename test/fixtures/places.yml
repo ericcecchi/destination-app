@@ -21,9 +21,8 @@
 one:
   external_place_id: MyString
   name: MyString
-  locale: one
 
 two:
   external_place_id: MyOtherString
   name: MyString
-  locale: two
+  parent_id: one
