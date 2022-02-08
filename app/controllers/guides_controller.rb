@@ -27,6 +27,6 @@ class GuidesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def create_params
-    params.require(:guide).permit(:locale_id, :title, :description)
+    params.require(:guide).permit(:destination_id, :title, :description)
   end
 end

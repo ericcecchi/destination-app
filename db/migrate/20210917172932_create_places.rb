@@ -5,7 +5,7 @@ class CreatePlaces < ActiveRecord::Migration[6.1]
     create_table :places do |t|
       t.string :place_id
       t.string :name
-      t.references :locale, null: false, foreign_key: true
+      t.references :destination, null: false, foreign_key: true
 
       t.timestamps
     end

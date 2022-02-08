@@ -4,14 +4,14 @@
       <a href="<%= recommendation_path recommendation %>"><h2 class="font-bold text-xl"><%= recommendation.title %></h2></a>
       <% if local_assigns[:destination] %>
         <a class="flex gap-1 items-center" href=""><!-- We haven't created the places controller yet -->
-          <p><%= recommendation.place.name %></p>
+          <p><%= recommendation.place&.name %></p>
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
           </svg>
         </a>
       <% end %>
     </div>
-    <div class="mt-2" style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden;"><%= recommendation.content %></div>
+    <div class="mt-2 line-clamp-3"><%= recommendation.content %></div>
   </div>
   <a class="border-cerulean-500 mt-4 -ml-2 rounded-md py-1 px-2 w-max text-cerulean-500 border-2 text-sm items-center font-bold flex justify-between" href="<%= recommendation_path recommendation %>">
     More info

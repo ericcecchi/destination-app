@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get    '/users/:id/guides', to: 'users#guides'
   get    '/users/:id/recommendations',
                               to: 'users#recommendations'
-  resources :locales, only: %i[index show], as: 'destinations', path: '/destinations'
+  resources :destinations, only: %i[index show]
   resources :recommendations
   resources :users
   resources :guides, only: %i[new create show]

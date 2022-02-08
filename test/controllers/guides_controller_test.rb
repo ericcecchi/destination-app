@@ -2,7 +2,7 @@ require "test_helper"
 
 class GuidesControllerTest < ActionDispatch::IntegrationTest
   def setup
-    @locale = locales(:four)
+    @destination = destinations(:four)
     @user = users(:michael)
   end
 
@@ -19,7 +19,7 @@ class GuidesControllerTest < ActionDispatch::IntegrationTest
 
   test "should redirect create guide when user is not logged in" do
     assert_no_difference 'Guide.count' do
-      post guides_url, params: { guide: { title: 'Lorem ipsum', description: 'My new guide', locale_id: 1 } }
+      post guides_url, params: { guide: { title: 'Lorem ipsum', description: 'My new guide', destination_id: 1 } }
     end
 
     assert_redirected_to login_url
@@ -28,7 +28,7 @@ class GuidesControllerTest < ActionDispatch::IntegrationTest
   test "should create a guide" do
     log_in_as @user
     assert_difference 'Guide.count' do
-      post guides_url, params: { guide: { locale_id: @locale.id, title: 'Some guide', description: 'Some guide description' } }
+      post guides_url, params: { guide: { destination_id: @destination.id, title: 'Some guide', description: 'Some guide description' } }
     end
 
     assert_redirected_to @user
