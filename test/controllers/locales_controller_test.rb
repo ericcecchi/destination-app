@@ -19,7 +19,7 @@ class LocalesControllerTest < ActionDispatch::IntegrationTest
         # Need to create individual guide list pages in method `show` first. ex: /destinations/1
         assert_select el, 'a'
         assert_select el, 'a h2', text: instance.name # title
-        assert_select el, 'img[src=?]', "/assets/images/#{instance.hero_image_url}", 1 # cover
+        assert_select el, 'img[src=?]', "/assets/images/#{instance.image_url}", 1 # cover
       end
     end
   end
