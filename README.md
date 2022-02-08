@@ -1,10 +1,10 @@
-# Recommend
+# Destination
 > Curated travel recommendations from tastemakers you love
 
 ## Getting started
 
 ### Prerequisites
-Recommend requires a PostgreSQL database. The easiest way to setup Postgres locally on a Mac is with Postgres.app.
+Destination requires a PostgreSQL database. The easiest way to setup Postgres locally on a Mac is with Postgres.app.
 [You can download and install it from the website](https://postgresapp.com/).
 
 ### Local setup
