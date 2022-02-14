@@ -46,6 +46,7 @@ jobs:
 
       - name: Run rails test
         env:
+          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
           DATABASE_HOST: localhost
           DATABASE_USERNAME: postgres
           DATABASE_PASSWORD: postgres
