@@ -11,7 +11,7 @@
     "@webpack-cli/serve": "^1.6.1",
     "autoprefixer": "^10.4.2",
     "babel-plugin-macros": "^3.1.0",
-    "css-loader": "^5.2.4",
+    "css-loader": "^6.6.0",
     "mini-css-extract-plugin": "^1.6.0",
     "postcss": "^8.2.15",
     "postcss-import": "^14.0.2",
