@@ -1,10 +1,10 @@
-<li class="mt-10 rounded-lg flex flex-col justify-between shadow-lg p-8">
+<li class="rounded-lg flex flex-col justify-between shadow-lg p-8">
   <div>
     <div class="flex justify-between items-start flex-wrap-reverse md:flex-nowrap">
       <a href="<%= recommendation_path recommendation %>"><h2 class="font-bold text-xl"><%= recommendation.title %></h2></a>
       <% if local_assigns[:destination] %>
-        <a class="flex gap-1 items-center" href=""><!-- We haven't created the places controller yet -->
-          <p><%= recommendation.place&.name %></p>
+        <a class="flex gap-1 items-center" href="<%= place_path recommendation.place %>">
+          <p class="w-max"><%= recommendation.place&.name %></p>
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
           </svg>
@@ -19,4 +19,10 @@
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
     </svg>
   </a>
+  <% if local_assigns[:user] && user %>
+    <a href="<%= user_path recommendation.user %>" class="flex gap-2 mt-5">
+      <%= gravatar_for recommendation.user, size: 28 %>
+      <p><%= recommendation.user.name %></p>
+    </a>
+  <% end %>
 </li>

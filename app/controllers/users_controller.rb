@@ -21,12 +21,12 @@ class UsersController < ApplicationController
 
   def guides
     @user = User.find(params[:id])
-    @guides = @user.guides.paginate(page: params[:page], per_page: 35)
+    @guides = @user.guides.paginate(page: params[:page], per_page: 33)
   end
 
   def recommendations
     @user = User.find(params[:id])
-    @recommendations = @user.recommendations.paginate(page: params[:page], per_page: 35)
+    @recommendations = @user.recommendations.paginate(page: params[:page], per_page: 33)
   end
 
   def new

@@ -1,0 +1,57 @@
+<% provide :title, @place.name %>
+
+<%= render 'shared/main' do %>
+  <div class="flex flex-col justify-between md:gap-6 gap-2">
+    <div class="flex justify-between md:gap-16 gap-5 h-full flex-wrap items-center md:flex-nowrap">
+      <div class="flex flex-col gap-5 w-max">
+        <%= render 'shared/main_heading', classes: 'w-max' do %>
+          <%= @place.name %>
+        <% end %>
+        <a href="<%= destination_path @place.root %>" class="flex justify-start gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+          </svg>
+          <p class="hover:text-blue-400"><%= @place.root.name %></p>
+        </a>
+        <% if @place.details['website'] %>
+          <a href="<%= @place.details['website'] %>" target="_blank" rel="noopener noreferrer" class="flex justify-start gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+            <p class="hover:text-blue-400"><%= @place.details['website'] %></p>
+          </a>
+        <% end %>
+        <% if @place.details['formatted_address'] %>
+          <a href="<%= @place.details['url'] %>" target="_blank" rel="noopener noreferrer" class="flex justify-start gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+            </svg>
+            <p class="hover:text-blue-400"><%= @place.details['formatted_address'] %></p>
+          </a>
+        <% end %>
+      </div>
+      <div
+        data-controller="map"
+        data-map-options-value='{
+          "accessToken": "<%= ENV['MAPBOX_API_KEY'] %>",
+          "geometry": {
+            "lat": <%= @place.details['lat'] %>,
+            "long": <%= @place.details['lng'] %>
+          },
+          "name": "<%= @place.name %>",
+          "link": "<%= @place.details['website'] %>",
+          "formattedAddress": "<%= @place.details['formatted_address'] %>",
+          "url": "<%= @place.details['url'] %>"
+        }'
+        class="h-96 w-full relative z-0"
+      ></div>
+    </div>
+    <div class="flex flex-col gap-4 mt-4">
+      <h2 class="sm:text-3xl text-2xl text-black font-bold">Recommendations</h2>
+      <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
+        <%= render @recommendations, user: true %>
+      </div>
+      <%= will_paginate @recommendations, style: 'align-self: center;' %>
+    </div>
+  </div>
+<% end %>
