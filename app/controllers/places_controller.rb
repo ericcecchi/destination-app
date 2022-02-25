@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Controller for places
 class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
