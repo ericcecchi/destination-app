@@ -19,7 +19,7 @@
     "sass": "^1.49.9",
     "sass-loader": "^11.1.1",
     "stimulus": "^3.0.1",
-    "style-loader": "^2.0.0",
+    "style-loader": "^3.3.1",
     "tailwindcss": "^2.2.16",
     "turbolinks": "^5.2.0",
     "webpack": "^5.69.1"
