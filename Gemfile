@@ -17,7 +17,7 @@ gem 'rails',         '6.1.4.6'
 gem 'sass-rails',    '6.0.0'
 gem 'stimulus-rails'
 gem 'turbolinks',    '5.2.1'
-gem 'webpacker',     '6.0.0.rc.5 '
+gem 'webpacker',     '6.0.0.rc.6'
 gem 'will_paginate', '3.3.1'
 
 group :development, :test do
