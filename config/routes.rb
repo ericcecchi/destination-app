@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :recommendations
   resources :users
   resources :guides, only: %i[new create show]
+  resources :places, only: %i[show]
   resources :account_activations, only: %i[create edit]
   resources :password_resets, only: %i[new create edit update]
   resources :recommendations, except: %i[index]

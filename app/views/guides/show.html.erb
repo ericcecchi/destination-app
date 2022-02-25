@@ -28,12 +28,8 @@
   </div>
 
   <%= render 'shared/main' do %>
-    <div class="mt-10">
-      <%= will_paginate @recommendations %>
-    </div>
-
     <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-      <%= render @recommendations, template: 'recommendations/recommendation' %>
+      <%= render @recommendations, destination: true %>
     </ul>
 
     <div class="mt-10">

@@ -20,7 +20,7 @@ class GuidesController < ApplicationController
 
   def show
     @guide = Guide.find(params[:id])
-    @recommendations = @guide.recommendations.paginate(page: params[:page], per_page: 35)
+    @recommendations = @guide.recommendations.paginate(page: params[:page], per_page: 33)
   end
 
   private
