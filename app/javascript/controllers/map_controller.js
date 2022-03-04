@@ -1,5 +1,6 @@
 import { Controller } from 'stimulus'
 import mapboxgl from 'mapbox-gl'
+import marker from '../../assets/images/map-marker.png'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
 export default class extends Controller {
@@ -15,10 +16,8 @@ export default class extends Controller {
             zoom: 11
         });
 
-        const canvas = this.map.getCanvas()
-
         const element = new DOMParser().parseFromString(`
-            <div data-dropdown-target="button" data-action="click->dropdown#toggle" style="background-image: url('/assets/map-marker.png'); width: 32px; height: 32px; background-size: 100%;" class="marker" />
+            <div style="background-image: url('${marker}'); width: 32px; height: 32px; background-size: 100%;" class="marker" />
         `, 'text/html').firstChild;
 
         new mapboxgl.Marker({ element }).setLngLat([this.optionsValue.geometry.long, this.optionsValue.geometry.lat]).addTo(this.map);
