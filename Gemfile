@@ -10,7 +10,7 @@ gem 'bootsnap',      '1.10.3', require: false
 gem 'closure_tree'
 gem 'faker',         '2.19.0'
 gem 'google_places', '2.0.0'
-gem 'jbuilder',      '2.10.0'
+gem 'jbuilder',      '2.11.5'
 gem 'pg',            '1.3.3'
 gem 'puma',          '5.6.2'
 gem 'rails',         '6.1.4.6'
