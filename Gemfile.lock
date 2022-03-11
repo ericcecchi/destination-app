@@ -73,7 +73,7 @@ GEM
     ast (2.4.2)
     bcrypt (3.1.16)
     bindex (0.8.1)
-    bootsnap (1.10.3)
+    bootsnap (1.11.1)
       msgpack (~> 1.2)
     brakeman (5.2.1)
     builder (3.2.4)
@@ -294,7 +294,7 @@ DEPENDENCIES
   after_party
   annotate (= 3.2.0)
   bcrypt (= 3.1.16)
-  bootsnap (= 1.10.3)
+  bootsnap (= 1.11.1)
   brakeman
   bundler-audit
   byebug (= 11.1.3)
