@@ -26,7 +26,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'annotate', '3.1.1'
+  gem 'annotate', '3.2.0'
   gem 'brakeman'
   gem 'bundler-audit'
   gem 'listen', '3.7.1'
