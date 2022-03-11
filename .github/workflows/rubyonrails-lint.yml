@@ -24,7 +24,7 @@ jobs:
       # Add or Replace any other security checks here
       - name: Run security checks
         run: |
-          bundle exec brakeman -q -w2
+          bundle exec brakeman -q -w2 --except EOLRuby
       # Add or Replace any other Linters here
       - name: Run linters
         run: |
