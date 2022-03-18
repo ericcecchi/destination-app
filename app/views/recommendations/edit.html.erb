@@ -1,6 +1,10 @@
-<h1>Editing Recommendation</h1>
+<% provide(:title, 'Edit Recommendation') %>
+<%= render 'shared/main' do %>
+  <%= render 'shared/main_heading', classes: 'text-center' do %>
+    Edit Recommendation
+  <% end %>
 
-<%= render 'form', recommendation: @recommendation %>
-
-<%= link_to 'Show', @recommendation %> |
-<%= link_to 'Back', recommendations_path %>
+  <div class="sm:max-w-2xl mt-10 mx-auto">
+    <%= render 'form', recommendation: @recommendation %>
+  </div>
+<% end %>

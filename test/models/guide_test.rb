@@ -53,7 +53,7 @@ class GuideTest < ActiveSupport::TestCase
   end
 
   test 'guides should be able to have recommendations attached' do
-    @guide.recommendations.create! title: 'Hello', content: 'World', user: users(:michael)
+    @guide.recommendations.create! title: 'Hello', content: 'World', place: places(:one), user: users(:michael)
     assert @guide.recommendations.first.valid?
     assert @guide.valid?
   end

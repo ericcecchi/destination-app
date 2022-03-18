@@ -2,9 +2,14 @@
   <%= render 'shared/error_messages', object: f.object %>
 
   <div class="field w-full">
-    <div class="mb-4 w-full">
-      <%= render 'shared/destination_select', form: f %>
-    </div>
+    <%= f.hidden_field :place_id, value: @place.id %>
+
+    <%= f.label :place_id %>
+    <% if @place.id %>
+      <%= render 'places/place', place: @place, class_name: 'mb-4' %>
+    <% else %>
+      <%= f.collection_select :place_id, Place.all, :id, :name, { prompt: 'Select or search a place', disabled: "", selected: "" }, 'data-controller': 'datalist' %>
+    <% end %>
 
     <%= f.label :title %>
     <%= f.text_field :title, class: "w-full mb-4" %>

@@ -5,7 +5,20 @@ require 'test_helper'
 class RecommendationsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @recommendation = recommendations(:orange)
+    @place = places(:one)
     @user = users(:michael)
+  end
+
+  test 'new should render select when no place provided' do
+    log_in_as @user
+    get new_recommendation_path
+    assert_select 'select[data-controller=datalist]', 1
+  end
+
+  test 'new should render place card with place' do
+    log_in_as @user
+    get new_recommendation_path(place: @place)
+    assert_select 'div.place', 1
   end
 
   test 'should redirect create when not logged in' do
@@ -32,7 +45,7 @@ class RecommendationsControllerTest < ActionDispatch::IntegrationTest
   test 'should create recommendation' do
     log_in_as @user
     assert_difference('Recommendation.count') do
-      post recommendations_url, params: { recommendation: { title: 'Title', content: 'Blarg' } }
+      post recommendations_url, params: { recommendation: { title: 'Title', content: 'Blarg', place_id: @place.id } }
     end
 
     assert_redirected_to @user

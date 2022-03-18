@@ -9,7 +9,9 @@ class RecommendationsController < ApplicationController
   def show; end
 
   # GET /recommendations/1/edit
-  def edit; end
+  def edit
+    @place = @recommendation.place
+  end
 
   # POST /recommendations
   def create
@@ -18,12 +20,13 @@ class RecommendationsController < ApplicationController
     if @recommendation.save
       redirect_to current_user, notice: 'Recommendation was successfully created.'
     else
-      render current_user
+      render :new, status: :unprocessable_entity
     end
   end
 
   # GET /recommendations/new
   def new
+    @place = Place.exists?(params[:place]) ? Place.find(params[:place]) : Place.new
     @recommendation = Recommendation.new
   end
 
@@ -51,6 +54,6 @@ class RecommendationsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def recommendation_params
-    params.require(:recommendation).permit(:content, :title)
+    params.require(:recommendation).permit(:content, :title, :place_id)
   end
 end
