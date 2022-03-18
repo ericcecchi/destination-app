@@ -24,8 +24,8 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Guide < ApplicationRecord
-  belongs_to :destination, optional: false
-  belongs_to :user, optional: false
+  belongs_to :destination, validate: true
+  belongs_to :user, validate: true
   has_many :guide_recommendations, dependent: :destroy
   has_many :recommendations, through: :guide_recommendations
   validates :title, presence: true

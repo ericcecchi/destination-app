@@ -21,8 +21,16 @@
 one:
   external_place_id: MyString
   name: MyString
+  details:
+    website: https://hello.world
+    url: https://foo.bar
+    formatted_address: 123 Sesame Street
 
 two:
   external_place_id: MyOtherString
   name: MyString
   parent_id: one
+  details:
+    website: https://goodbye.world
+    url: https://foo.baz
+    formatted_address: 456 Sesame Street

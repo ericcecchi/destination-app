@@ -29,6 +29,7 @@
             <p class="hover:text-blue-400"><%= @place.details['formatted_address'] %></p>
           </a>
         <% end %>
+        <a href="<%= new_recommendation_path place: @place.id %>" class="btn btn-primary">Recommend this place</a>
       </div>
       <div
         data-controller="map"

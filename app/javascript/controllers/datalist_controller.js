@@ -1,27 +1,9 @@
 import { Controller } from "stimulus";
+import Choices from "choices.js";
+import "choices.js/public/assets/styles/choices.css"
 
 export default class extends Controller {
-    static targets = ['input', 'list', 'hidden']
-
-    update() {
-        let options = this.listTarget.querySelectorAll('option');
-        let option = [].find.call(options, o => {
-            return o.value === this.inputTarget.value;
-        });
-
-        if (option) {
-            this.hiddenTarget.setAttribute('value', option.getAttribute('data-value'));
-        }
-    }
-
-    validate() {
-        let options = this.listTarget.querySelectorAll('option');
-        let option = [].find.call(options, o => {
-            return o.value === this.inputTarget.value;
-        });
-
-        if (!option) {
-            this.inputTarget.value = '';
-        }
+    connect() {
+        this.choices = new Choices(this.element)
     }
 }

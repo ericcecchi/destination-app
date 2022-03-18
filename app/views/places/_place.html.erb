@@ -1,0 +1,27 @@
+<div class="place rounded-lg shadow-lg p-5 flex flex-col justify-between gap-1 <%= local_assigns[:class_name] ? class_name : '' %>">
+  <a href="<%= place_path place %>"><h2 class="text-xl font-bold mb-1"><%= place.name %></h2></a>
+  <% if @place.root %>
+    <a href="<%= destination_path @place.root %>" class="flex justify-start gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+      </svg>
+      <p class="hover:text-blue-400"><%= @place.root.name %></p>
+    </a>
+  <% end %>
+  <% if @place.details['website'] %>
+    <a href="<%= @place.details['website'] %>" target="_blank" rel="noopener noreferrer" class="flex justify-start gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+      </svg>
+      <p class="hover:text-blue-400"><%= @place.details['website'] %></p>
+    </a>
+  <% end %>
+  <% if @place.details['formatted_address'] %>
+    <a href="<%= @place.details['url'] %>" target="_blank" rel="noopener noreferrer" class="flex justify-start gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+      </svg>
+      <p class="hover:text-blue-400"><%= @place.details['formatted_address'] %></p>
+    </a>
+  <% end %>
+</div>

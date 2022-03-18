@@ -87,3 +87,36 @@ select {
 .mapbox-improve-map {
   display: none;
 }
+
+.choices {
+  .choices__inner {
+    @apply block py-1 px-4 rounded-md border-2 border-gray-400 dark:bg-black dark:border-gray-500 bg-white;
+    .choices__placeholder {
+      margin-top: 2px;
+    }
+    * {
+      @apply focus:ring-0 focus:outline-none
+    }
+  }
+
+  .choices__list.choices__list--dropdown {
+    @apply mt-1 block shadow-lg rounded-md border-2 border-gray-400 dark:bg-black dark:border-gray-500 bg-white;
+    input {
+      @apply rounded-none border-transparent z-50 relative border-gray-400 dark:bg-black dark:border-gray-500 bg-white;
+      border-width: 1px;
+    }
+
+    [data-choice-selectable] {
+      @apply transition;
+      &:hover {
+        @apply bg-gray-100;
+      }
+    }
+  }
+
+  &:focus-within {
+    .choices__inner {
+      @apply border-cerulean-500 ring-cerulean-500 ring-1;
+    }
+  }
+}

@@ -21,8 +21,6 @@
 #  fk_rails_...  (recommendation_id => recommendations.id)
 #
 class GuideRecommendation < ApplicationRecord
-  belongs_to :guide
-  belongs_to :recommendation
-  validates :guide_id, presence: true
-  validates :recommendation_id, presence: true
+  belongs_to :guide, validate: true
+  belongs_to :recommendation, validate: true
 end

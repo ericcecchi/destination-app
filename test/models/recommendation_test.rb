@@ -29,7 +29,7 @@ class RecommendationTest < ActiveSupport::TestCase
   def setup
     @user = users(:michael)
     # This code is not idiomatically correct.
-    @recommendation = @user.recommendations.build(title: 'Title', content: 'Lorem ipsum')
+    @recommendation = @user.recommendations.build(title: 'Title', content: 'Lorem ipsum', place: places(:one))
   end
 
   test 'should be valid' do
