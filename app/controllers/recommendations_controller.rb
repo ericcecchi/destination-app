@@ -26,7 +26,7 @@ class RecommendationsController < ApplicationController
 
   # GET /recommendations/new
   def new
-    @place = Place.exists?(params[:place]) ? Place.find(params[:place]) : Place.new
+    @place = Place.exists?(id: params[:place]) ? Place.find(params[:place]) : Place.new
     @recommendation = Recommendation.new
   end
 
