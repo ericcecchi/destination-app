@@ -8,7 +8,7 @@ gem 'after_party'
 gem 'bcrypt',        '3.1.16'
 gem 'bootsnap',      '1.10.3', require: false
 gem 'closure_tree'
-gem 'faker',         '2.19.0'
+gem 'faker',         '3.0.0'
 gem 'google_places', '2.0.0'
 gem 'jbuilder',      '2.10.0'
 gem 'pg',            '1.3.3'
