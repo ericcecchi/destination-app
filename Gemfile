@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'active_interaction', '~> 4.1'
 gem 'after_party'
 gem 'bcrypt',        '3.1.16'
-gem 'bootsnap',      '1.10.3', require: false
+gem 'bootsnap',      '1.15.0', require: false
 gem 'closure_tree'
 gem 'faker',         '2.19.0'
 gem 'google_places', '2.0.0'
