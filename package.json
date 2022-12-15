@@ -11,7 +11,7 @@
     "@webpack-cli/serve": "^1.6.1",
     "autoprefixer": "^10.4.2",
     "babel-plugin-macros": "^3.1.0",
-    "css-loader": "^6.6.0",
+    "css-loader": "^6.7.3",
     "mapbox-gl": "^2.7.0",
     "mini-css-extract-plugin": "^2.5.3",
     "postcss": "^8.4.7",
