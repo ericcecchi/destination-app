@@ -31,7 +31,7 @@ group :development do
   gem 'bundler-audit'
   gem 'listen', '3.7.1'
   gem 'pry-byebug'
-  gem 'rails-erd', '~> 1.6'
+  gem 'rails-erd', '~> 1.7'
   gem 'rubocop', require: false
   gem 'rubocop-minitest', require: false
   gem 'rubocop-rails', require: false
