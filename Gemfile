@@ -29,7 +29,7 @@ group :development do
   gem 'annotate', '3.2.0'
   gem 'brakeman'
   gem 'bundler-audit'
-  gem 'listen', '3.7.1'
+  gem 'listen', '3.8.0'
   gem 'pry-byebug'
   gem 'rails-erd', '~> 1.6'
   gem 'rubocop', require: false
