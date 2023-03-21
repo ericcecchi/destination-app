@@ -19,7 +19,7 @@
     "postcss-import": "^14.0.2",
     "postcss-loader": "^6.2.1",
     "sass": "^1.49.9",
-    "sass-loader": "^12.6.0",
+    "sass-loader": "^13.2.1",
     "stimulus": "^3.0.1",
     "style-loader": "^3.3.1",
     "tailwindcss": "^2.2.16",
