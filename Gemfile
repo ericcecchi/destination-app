@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-gem 'active_interaction', '~> 4.1'
+gem 'active_interaction', '~> 5.2'
 gem 'after_party'
 gem 'bcrypt',        '3.1.16'
 gem 'bootsnap',      '1.10.3', require: false
