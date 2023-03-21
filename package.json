@@ -8,7 +8,7 @@
     "@rails/webpacker": "^6.0.0-rc.6",
     "@tailwindcss/forms": "^0.3.2",
     "@tailwindcss/line-clamp": "^0.3.1",
-    "@webpack-cli/serve": "^1.6.1",
+    "@webpack-cli/serve": "^2.0.1",
     "autoprefixer": "^10.4.2",
     "babel-plugin-macros": "^3.1.0",
     "choices.js": "^10.1.0",
@@ -37,7 +37,7 @@
     "not IE 11"
   ],
   "devDependencies": {
-    "@webpack-cli/serve": "^1.6.1",
+    "@webpack-cli/serve": "^2.0.1",
     "webpack-dev-server": "^4.7.4"
   }
 }
