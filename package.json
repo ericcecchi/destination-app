@@ -16,7 +16,7 @@
     "mapbox-gl": "^2.7.0",
     "mini-css-extract-plugin": "^2.5.3",
     "postcss": "^8.4.7",
-    "postcss-import": "^14.0.2",
+    "postcss-import": "^15.1.0",
     "postcss-loader": "^6.2.1",
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0",
