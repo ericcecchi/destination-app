@@ -20,7 +20,7 @@
     "postcss-loader": "^6.2.1",
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0",
-    "stimulus": "^3.0.1",
+    "stimulus": "^3.2.1",
     "style-loader": "^3.3.1",
     "tailwindcss": "^2.2.16",
     "turbolinks": "^5.2.0",
